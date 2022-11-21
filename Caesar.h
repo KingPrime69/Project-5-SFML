@@ -11,6 +11,7 @@ public :
 
 	void reset();
 	void encryptChar(int letter);
+	void decryptChar(int letter);
 
 
 

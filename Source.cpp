@@ -21,7 +21,7 @@ static void decryptString(Caesar& encryptionMethod,
 	encryptionMethod.reset();
 	for (size_t i = 0; i < len; i++)
 	{
-		//encryptionMethod.decryptChar(toDecrypt[i]);
+		encryptionMethod.decryptChar(toDecrypt[i]);
 	}
 	std::cout << std::endl;
 }
@@ -34,6 +34,6 @@ int main()
 	);
 	encryptString(c, "KIKOO ");
 	encryptString(c, "LULZ XD");
-	decryptString(c, "Ziqivun ea Ndcsg. Wji !");
+	decryptString(c, "Ziqivun ea Ndcsg.Wji !");
 	return 0;
 }
