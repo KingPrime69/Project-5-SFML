@@ -56,12 +56,12 @@ int main()
         window.clear();
         // Draw the sprite
         count++;
-        if (count == 15) {
-            frame++;
+        if (count == 20) {
             laporeille.setTextureRect(sf::IntRect(81+27*frame, 25, 25, 27));
             salameche.setTextureRect(sf::IntRect(1044 + 18 * frame, 338, 11, 18));
             count = 0;
             if (frame == 3)frame = 0;
+            else frame++;
         }
         window.draw(laporeille);
         window.draw(salameche);
