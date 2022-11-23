@@ -10,10 +10,10 @@ SpriteAnim::~SpriteAnim()
 {
 }
 
-int SpriteAnim::createSprite(int x, int y, int width, int height, int pX, int pY)
+int SpriteAnim::createSprite(int x, int y, int width, int height, float pX, float pY)
 {
     sf::Texture texture;
-    if (!texture.loadFromFile("sprite/spriteSheet.png"))return EXIT_FAILURE;
+    if (!texture.loadFromFile("sprite/sprite-Starter.png"))return EXIT_FAILURE;
     sf::Sprite sprite(texture);
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(x, y, width, height));
@@ -23,5 +23,5 @@ int SpriteAnim::createSprite(int x, int y, int width, int height, int pX, int pY
 
 void SpriteAnim::playAnim(int increment)
 {
-    window.draw(laporeille);
+    //window.draw(sprite);
 }

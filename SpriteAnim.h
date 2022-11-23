@@ -10,7 +10,7 @@ public:
 	SpriteAnim();
 	~SpriteAnim();
 
-	int createSprite(int x, int y, int width, int height, int pX, int pY);
+	int createSprite(int x, int y, int width, int height, float pX, float pY);
 	void playAnim(int increment);
 
 
