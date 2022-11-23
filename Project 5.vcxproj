@@ -23,6 +23,7 @@
     <ClCompile Include="SpriteAnim.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="ViewManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="pokemonSolid.ttf" />
@@ -37,6 +38,7 @@
     <ClInclude Include="SpriteAnim.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="ViewManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
