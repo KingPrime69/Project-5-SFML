@@ -10,6 +10,7 @@ void Game::setWindow(int width, int height, const char* windowName)
 	this->window.setSize(sf::Vector2u(width, height));
 }
 
+
 bool Game::isOpen(void) const
 {
     return this->window.isOpen();
@@ -44,5 +45,11 @@ void Game::display(void)
 {
     this->window.display();
 }
+
+sf::Vector2u Game::getSize()
+{
+    return this->window.getSize();
+}
+
 
 

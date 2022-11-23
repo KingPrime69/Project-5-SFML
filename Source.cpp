@@ -4,13 +4,20 @@
 #include <SFML/Graphics.hpp>
 
 #include "Game.h"
+#include "Menu.h"
+#include "test.h"
 #include "SpriteAnim.h"
 
 
 int main()
 {   
     Game window;
-    SpriteAnim anim;
+    Menu menu;
+    test test;
+
+    menu.initComponent(window.getSize().x, window.getSize().x);
+    test.initComponent();
+    //SpriteAnim anim;
 
     // Create the main window
     //sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML window");
@@ -21,26 +28,17 @@ int main()
     if (!texture.loadFromFile("sprite/sprite-Starter.png"))return EXIT_FAILURE;
 
 
-    anim.createSprite(1, 0, 13, 16, 200, 300);
+    //anim.createSprite(1, 0, 13, 16, 200, 300);
 
-    sf::Sprite salameche(texture);
-    salameche.setTexture(texture);
-    salameche.setTextureRect(sf::IntRect(66, 1, 13, 16));
-    salameche.scale(5, 5);
-    salameche.setPosition(500, 500);
+    //sf::Sprite salameche(texture);
+    //salameche.setTexture(texture);
+    //salameche.setTextureRect(sf::IntRect(66, 1, 13, 16));
+    //salameche.scale(5, 5);
+    //salameche.setPosition(300, 300);
 
 
 
     // Create a graphical text to display
-    sf::Font font2;
-    if (!font2.loadFromFile("pokemonSolid.ttf"))return EXIT_FAILURE;
-    sf::Text text2("Pokiiiimon", font2, 100);
-    text2.setFillColor(sf::Color::Yellow);
-
-    sf::Font font;
-    if (!font.loadFromFile("pokemonHollow.ttf"))return EXIT_FAILURE;
-    sf::Text text("Pokiiiimon", font, 100);
-    text.setFillColor(sf::Color::Blue);
 
 
     int count = 0;
@@ -52,18 +50,19 @@ int main()
         // Clear screen
         window.clear();
         // Draw the sprite
-        count++;
-        if (count == 20) {
-            salameche.setTextureRect(sf::IntRect(66 + 16 * frame, 1, 13, 16));
-            count = 0;
-            if (frame == 3)frame = 0;
-            else frame++;
-        }
-        window.drawSprite(salameche);
+        //count++;
+        //if (count == 20) {
+        //    salameche.setTextureRect(sf::IntRect(66 + 16 * frame, 1, 13, 16));
+        //    count = 0;
+        //    if (frame == 3)frame = 0;
+        //    else frame++;
+        //}
 
         // Draw the string
-        window.drawText(text2);
-        window.drawText(text);
+        for (unsigned int i = 0; i < menu.componentTextList.size(); i++)window.drawText(menu.componentTextList[i]);
+
+        for (unsigned int i = 0; i < test.compSpriteList.size(); i++)window.drawSprite(test.compSpriteList[i]);
+        //window.drawSprite(salameche);
         // Update the window
         window.display();
     }

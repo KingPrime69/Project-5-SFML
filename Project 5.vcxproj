@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="SpriteAnim.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="test.cpp" />
     <ClCompile Include="ViewManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -35,9 +37,11 @@
     <Image Include="sprite\spriteSheet.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="SpriteAnim.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="test.h" />
     <ClInclude Include="ViewManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

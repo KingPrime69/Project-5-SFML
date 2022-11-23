@@ -2,7 +2,10 @@
 
 #include <iostream>
 
+
 #include <SFML/Graphics.hpp>
+
+
 
 
 class Game
@@ -16,7 +19,8 @@ public:
     void drawText(sf::Text text);
     void clear(void);
     void display(void);
-    void render(void);
+
+    sf::Vector2u getSize();
 
 
 
