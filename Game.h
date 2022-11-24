@@ -1,30 +1,19 @@
 #pragma once
 
 #include <iostream>
-
-
+#include "Window.h"
 #include <SFML/Graphics.hpp>
-
-
-
 
 class Game
 {
 public:
-	Game(void);
-	void setWindow(int width, int height, const char* windowName);
-    bool isOpen(void) const;
-    void handleEvents(void);
-    void drawSprite(sf::Sprite sprite);
-    void drawText(sf::Text text);
-    void clear(void);
-    void display(void);
+	Game();
 
-    sf::Vector2u getSize();
-
-
-
+	Window window;
+	std::stack<ViewManager*> viewManager;
+	int run();
+	void showView();
 private:
-	sf::RenderWindow window;
+
 };
 

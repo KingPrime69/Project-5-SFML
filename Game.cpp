@@ -1,55 +1,52 @@
 #include "Game.h"
 
-Game::Game(void) : window(sf::VideoMode(1200, 800), "Pokiiiiimon")
+Game::Game()
 {
-	this->window.setFramerateLimit(60);
+
 }
 
-void Game::setWindow(int width, int height, const char* windowName)
+int Game::run()
 {
-	this->window.setSize(sf::Vector2u(width, height));
-}
+    // Load a sprite to display
+    //sf::Texture texture;
+    //if (!texture.loadFromFile("sprite/player (1).png"))return EXIT_FAILURE;
 
 
-bool Game::isOpen(void) const
-{
-    return this->window.isOpen();
-}
+    //anim.createSprite(1, 0, 13, 16, 200, 300);
 
-void Game::handleEvents(void)
-{
-    sf::Event event;
-    while (this->window.pollEvent(event))
+    //sf::Sprite salameche(texture);
+    //salameche.setTexture(texture);
+    //salameche.setTextureRect(sf::IntRect(6, 2, 18, 27));
+    //salameche.scale(5, 5);
+    //salameche.setPosition(300, 300);
+
+    
+    while (this->window.isOpen())
     {
-        if (event.type == sf::Event::Closed)
-            this->window.close();
+        this->window.handleEvents();
+        // Clear screen
+        this->window.clear();
+        // Draw the sprite
+        //count++;
+        //if (count == 10) {
+        //    salameche.setTextureRect(sf::IntRect(6 + 19 * frame, 2, 18, 27));
+        //    count = 0;
+        //    if (frame == 3)frame = 0;
+        //    else frame++;
+        //}
+
+        // Draw the string
+
+        //this->window.drawSprite(salameche);
+
+        //for (unsigned int i = 0; i < menu.componentTextList.size(); i++)this->window.drawText(menu.componentTextList[i]);
+
+        //for (unsigned int i = 0; i < test.compSpriteList.size(); i++)this->window.drawSprite(test.compSpriteList[i]);
+        
+        //window.drawSprite(salameche);
+        //window.drawSprite(salameche);
+        // Update the window
+        this->window.display();
     }
+    return EXIT_SUCCESS;
 }
-
-void Game::drawSprite(sf::Sprite sprite)
-{
-    this->window.draw(sprite);
-}
-
-void Game::drawText(sf::Text text)
-{
-    this->window.draw(text);
-}
-
-void Game::clear(void)
-{
-    this->window.clear();
-}
-
-void Game::display(void)
-{
-    this->window.display();
-}
-
-sf::Vector2u Game::getSize()
-{
-    return this->window.getSize();
-}
-
-
-
