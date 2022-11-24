@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <stack>
 #include "Window.h"
 #include <SFML/Graphics.hpp>
 

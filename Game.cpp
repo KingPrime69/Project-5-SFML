@@ -50,3 +50,9 @@ int Game::run()
     }
     return EXIT_SUCCESS;
 }
+
+void Game::showView()
+{
+
+
+}

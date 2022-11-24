@@ -9,7 +9,7 @@ class ViewManager
 {
 public:
 	Game game;
-	std::stack<ViewManager*> viewManager;
+	
 	void initView(float width, float height);
 private:
 	
