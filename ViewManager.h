@@ -8,8 +8,7 @@
 class ViewManager
 {
 public:
-	Game game;
-	
+	ViewManager();
 	void initView(float width, float height);
 private:
 	

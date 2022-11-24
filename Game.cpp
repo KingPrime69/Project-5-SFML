@@ -2,8 +2,16 @@
 
 Game::Game()
 {
+    this->viewManagers.push(new ViewManager());
+}
+
+
+void Game::showView()
+{
+   
 
 }
+
 
 int Game::run()
 {
@@ -51,8 +59,3 @@ int Game::run()
     return EXIT_SUCCESS;
 }
 
-void Game::showView()
-{
-
-
-}

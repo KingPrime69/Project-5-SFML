@@ -2,8 +2,10 @@
 
 #include <iostream>
 #include <stack>
-#include "Window.h"
 #include <SFML/Graphics.hpp>
+
+#include "Window.h"
+#include "ViewManager.h"
 
 class Game
 {
@@ -11,10 +13,10 @@ public:
 	Game();
 
 	Window window;
-	std::stack<ViewManager*> viewManager;
-	int run();
 	void showView();
+	int run();
 private:
+	std::stack<ViewManager*> viewManagers;
 
 };
 
