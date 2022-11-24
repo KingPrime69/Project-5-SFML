@@ -2,13 +2,16 @@
 
 Game::Game()
 {
-    this->viewManagers.push(new ViewManager());
+    this->viewManagers.push(new ViewManager(&this->window));
 }
 
 
 void Game::showView()
 {
-   
+    if (!this->viewManagers.empty())
+    {
+
+    }
 
 }
 
@@ -54,6 +57,9 @@ int Game::run()
         //window.drawSprite(salameche);
         //window.drawSprite(salameche);
         // Update the window
+
+
+
         this->window.display();
     }
     return EXIT_SUCCESS;

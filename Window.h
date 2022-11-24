@@ -22,9 +22,9 @@ public:
 
     sf::Vector2u getSize();
 
+	sf::RenderWindow window;
 
 
 private:
-	sf::RenderWindow window;
 };
 

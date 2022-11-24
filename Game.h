@@ -7,12 +7,10 @@
 #include "Window.h"
 #include "ViewManager.h"
 
-class Game
+class Game : public Window
 {
 public:
 	Game();
-
-	Window window;
 	void showView();
 	int run();
 private:

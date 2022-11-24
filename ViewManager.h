@@ -3,16 +3,14 @@
 #include <iostream>
 #include <stack>
 #include <SFML/Graphics.hpp>
-#include "Game.h"
 
 class ViewManager
 {
 public:
-	ViewManager();
+	ViewManager(sf::RenderWindow *window);
 	void initView(float width, float height);
 private:
-	
-
+	sf::RenderWindow* window;
 
 };
 
