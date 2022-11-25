@@ -19,17 +19,11 @@
     <Filter Include="Source Files\Sprite">
       <UniqueIdentifier>{2f5044f0-18ab-4a8d-98b6-4f0c95e46d6b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\ViewManager">
-      <UniqueIdentifier>{4552422c-b5cc-4286-8cc5-707b4eb18cf7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\ViewManager\View">
-      <UniqueIdentifier>{f04828eb-fe20-4d33-bf49-52ae65dd812c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ViewManager">
+    <Filter Include="Source Files\View">
       <UniqueIdentifier>{ab5d9368-cd49-473b-b793-910c40ebabe9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\ViewManager\View">
-      <UniqueIdentifier>{49bc0012-ae0c-457a-ae43-d0a1257c4cdf}</UniqueIdentifier>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{4552422c-b5cc-4286-8cc5-707b4eb18cf7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,23 +33,23 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ViewManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="SpriteManager.cpp">
       <Filter>Source Files\Sprite</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="ViewManager.cpp">
-      <Filter>Source Files\ViewManager</Filter>
+    <ClCompile Include="test.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SpriteAnim.cpp">
       <Filter>Source Files\Sprite</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Source Files\ViewManager\View</Filter>
-    </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>Source Files\ViewManager\View</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,23 +81,23 @@
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ViewManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="SpriteAnim.h">
       <Filter>Header Files\Sprite</Filter>
     </ClInclude>
     <ClInclude Include="SpriteManager.h">
       <Filter>Header Files\Sprite</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ViewManager.h">
-      <Filter>Header Files\ViewManager</Filter>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="test.h">
-      <Filter>Header Files\ViewManager\View</Filter>
+      <Filter>Header Files\View</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Header Files\ViewManager\View</Filter>
+    <ClInclude Include="WindowManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

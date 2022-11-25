@@ -4,13 +4,17 @@
 #include <stack>
 #include <SFML/Graphics.hpp>
 
-#include "Window.h"
+#include "WindowManager.h"
 #include "ViewManager.h"
 
-class Game : public Window
+#include "Menu.h"
+
+class Game
 {
 public:
+	WindowManager window;
 	Game();
+	~Game();
 	void showView();
 	int run();
 private:

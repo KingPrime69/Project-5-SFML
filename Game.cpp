@@ -5,6 +5,15 @@ Game::Game()
     this->viewManagers.push(new ViewManager(&this->window));
 }
 
+Game::~Game()
+{
+    for (unsigned int i = 0; i < this->viewManagers.size(); i++)
+    {
+        delete this->viewManagers.top();
+        this->viewManagers.pop();
+    }
+}
+
 
 void Game::showView()
 {
@@ -18,6 +27,8 @@ void Game::showView()
 
 int Game::run()
 {
+    Menu menu(&this->window);
+
     // Load a sprite to display
     //sf::Texture texture;
     //if (!texture.loadFromFile("sprite/player (1).png"))return EXIT_FAILURE;
@@ -45,7 +56,11 @@ int Game::run()
         //    if (frame == 3)frame = 0;
         //    else frame++;
         //}
+        menu.initComponent();
 
+        if (this->viewManagers.top()->componentTextList.empty())
+            std::cout << "test" << std::endl;
+        this->viewManagers.top()->drawCurrentView();
         // Draw the string
 
         //this->window.drawSprite(salameche);

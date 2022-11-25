@@ -1,12 +1,24 @@
 #include "ViewManager.h"
 
-ViewManager::ViewManager(sf::RenderWindow* window)
+ViewManager::ViewManager(WindowManager *window)
 {
 	this->window = window;
+	this->viewName = viewName;
 }
 
-void ViewManager::initView(float width, float height)
+ViewManager::~ViewManager()
+{
+}
+
+void ViewManager::initView()
 {
 
+}
 
+void ViewManager::drawCurrentView()
+{
+	for (unsigned int i = 0; i < componentTextList.size(); i++)
+	{
+		this->window->drawText(componentTextList[i]);
+	}
 }

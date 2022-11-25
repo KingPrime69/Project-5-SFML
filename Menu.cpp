@@ -1,7 +1,22 @@
 #include "Menu.h"
 
-int Menu::initComponent(float width, float height)
+
+
+Menu::Menu(WindowManager* window) : ViewManager(window)
 {
+	this->window = window;
+}
+
+Menu::~Menu()
+{
+
+}
+
+int Menu::initComponent()
+{
+	float width = this->window->getSize().x;
+	float height = this->window->getSize().y;
+
 	if (!title.loadFromFile("pokemonSolid.ttf"))return EXIT_FAILURE;
 	componentText[0].setFont(title);
 	componentText[0].setFillColor(sf::Color::Yellow);
@@ -20,5 +35,13 @@ int Menu::initComponent(float width, float height)
 
 	for (unsigned int i = 0; i < MAX_NUMBER_OF_ITEMS; i++) {
 		componentTextList[i] = componentText[i];
+	}
+}
+
+void Menu::draw()
+{
+	for (unsigned int i = 0; i < componentTextList.size(); i++)
+	{
+		this->window->drawText(componentTextList[i]);
 	}
 }
