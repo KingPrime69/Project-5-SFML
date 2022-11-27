@@ -3,24 +3,21 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-#include "WindowManager.h"
-#include "ViewManager.h"
+#include "InterfaceTemplate.h"
 
-class Menu : public ViewManager
+#define MAX_NUMBER_OF_ITEMS 2
+class Menu : public InterfaceTemplate
 {
 public:
-	Menu(WindowManager* window);
+	Menu(sf::RenderWindow* window);
 	~Menu();
 
 
-	int initComponent();
-	void draw();
+	void initComponent();
 
 private:
-	sf::Font title;
-	sf::Font title2;
+
 	sf::Text componentText[MAX_NUMBER_OF_ITEMS];
 
-	WindowManager* window;
 };
 

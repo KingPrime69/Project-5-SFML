@@ -20,11 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="InterfaceTemplate.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="SpriteAnim.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
-    <ClCompile Include="WindowManager.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="ViewManager.cpp" />
   </ItemGroup>
@@ -41,10 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="InterfaceTemplate.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="SpriteAnim.h" />
     <ClInclude Include="SpriteManager.h" />
-    <ClInclude Include="WindowManager.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="ViewManager.h" />
   </ItemGroup>

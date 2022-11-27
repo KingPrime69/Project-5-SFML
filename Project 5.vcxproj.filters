@@ -45,11 +45,11 @@
     <ClCompile Include="test.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="WindowManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SpriteAnim.cpp">
       <Filter>Source Files\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfaceTemplate.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -96,7 +96,7 @@
     <ClInclude Include="test.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
-    <ClInclude Include="WindowManager.h">
+    <ClInclude Include="InterfaceTemplate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

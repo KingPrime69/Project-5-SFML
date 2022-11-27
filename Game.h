@@ -4,21 +4,31 @@
 #include <stack>
 #include <SFML/Graphics.hpp>
 
-#include "WindowManager.h"
 #include "ViewManager.h"
 
-#include "Menu.h"
 
 class Game
 {
 public:
-	WindowManager window;
 	Game();
 	~Game();
+
+	void setWindow(int width, int height, const char* windowName);
+	void drawSprite(sf::Sprite sprite);
+	void drawText(sf::Text text);
+
+	sf::Vector2u getSize();
+
+
+	void handleEvents(void); 
+
 	void showView();
 	int run();
-private:
-	std::stack<ViewManager*> viewManagers;
 
+
+
+private:
+	sf::RenderWindow window;
+	ViewManager* viewManager;
 };
 

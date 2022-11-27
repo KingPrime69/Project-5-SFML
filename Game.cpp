@@ -1,34 +1,61 @@
 #include "Game.h"
 
-Game::Game()
+Game::Game() : window(sf::VideoMode(1200, 800), "Poke moon")
 {
-    this->viewManagers.push(new ViewManager(&this->window));
+    this->window.setFramerateLimit(60);
+    this->viewManager = new ViewManager(&this->window);
 }
 
 Game::~Game()
 {
-    for (unsigned int i = 0; i < this->viewManagers.size(); i++)
+
+}
+
+void Game::setWindow(int width, int height, const char* windowName)
+{
+    this->window.setSize(sf::Vector2u(width, height));
+}
+
+
+
+void Game::drawSprite(sf::Sprite sprite)
+{
+    this->window.draw(sprite);
+}
+
+void Game::drawText(sf::Text text)
+{
+    this->window.draw(text);
+}
+
+sf::Vector2u Game::getSize()
+{
+    return this->window.getSize();
+}
+
+ 
+
+void Game::handleEvents(void)
+{
+    sf::Event event;
+    while (this->window.pollEvent(event))
     {
-        delete this->viewManagers.top();
-        this->viewManagers.pop();
+        if (event.type == sf::Event::Closed)
+            this->window.close();
     }
 }
 
 
 void Game::showView()
 {
-    if (!this->viewManagers.empty())
-    {
-
-    }
 
 }
 
 
 int Game::run()
 {
-    Menu menu(&this->window);
 
+    this->viewManager->initView();
     // Load a sprite to display
     //sf::Texture texture;
     //if (!texture.loadFromFile("sprite/player (1).png"))return EXIT_FAILURE;
@@ -45,7 +72,7 @@ int Game::run()
     
     while (this->window.isOpen())
     {
-        this->window.handleEvents();
+        this->handleEvents();
         // Clear screen
         this->window.clear();
         // Draw the sprite
@@ -56,12 +83,9 @@ int Game::run()
         //    if (frame == 3)frame = 0;
         //    else frame++;
         //}
-        menu.initComponent();
-
-        if (this->viewManagers.top()->componentTextList.empty())
-            std::cout << "test" << std::endl;
-        this->viewManagers.top()->drawCurrentView();
         // Draw the string
+
+        this->viewManager->drawCurrentView();
 
         //this->window.drawSprite(salameche);
 

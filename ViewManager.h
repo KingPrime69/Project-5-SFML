@@ -1,27 +1,26 @@
 #pragma once
 
 #include <iostream>
-#include <array>
+#include <stack>
 #include <SFML/Graphics.hpp>
 
-#include "WindowManager.h"
+#include "Menu.h"
 
-#define MAX_NUMBER_OF_ITEMS 4
 class ViewManager
 {
 public:
 
-	ViewManager(WindowManager *window);
+	ViewManager(sf::RenderWindow *window);
 	~ViewManager();
 
 	void initView();
 	void drawCurrentView();
 
 
-	std::array<sf::Text, MAX_NUMBER_OF_ITEMS> componentTextList;
 
 private:
-	WindowManager *window;
-	std::string viewName;
+	//Menu* menu;
+	std::stack<InterfaceTemplate*> view;
+	sf::RenderWindow *window;
 };
 

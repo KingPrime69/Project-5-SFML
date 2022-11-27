@@ -4,8 +4,6 @@
 #include <SFML/Graphics.hpp>
 
 #include"Game.h"
-#include "Menu.h"
-#include "test.h"
 #include "SpriteAnim.h"
 
 
