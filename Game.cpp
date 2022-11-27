@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game::Game() : window(sf::VideoMode(1200, 800), "Poke moon")
+Game::Game() : window(sf::VideoMode(1800, 800), "Poke moon")
 {
     this->window.setFramerateLimit(60);
     this->viewManager = new ViewManager(&this->window);

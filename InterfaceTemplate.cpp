@@ -19,11 +19,7 @@ int InterfaceTemplate::InitFont()
 	return 0;
 }
 
-void InterfaceTemplate::createButton(sf::Vector2u coord, const char* text)
-{
-}
-
-int InterfaceTemplate::addText(sf::Text content, sf::Color color, int font, const char* text,
+void InterfaceTemplate::createButton(sf::Text content, sf::Color color, int font, const char* text,
 	float x, float y, int size)
 {
 	componentTextList.push_back(content);
@@ -32,7 +28,17 @@ int InterfaceTemplate::addText(sf::Text content, sf::Color color, int font, cons
 	componentTextList.back().setString(text);
 	componentTextList.back().setPosition(x, y);
 	componentTextList.back().setCharacterSize(size);
-	return 0;
+}
+
+void InterfaceTemplate::addText(sf::Text content, sf::Color color, int font, const char* text,
+	float x, float y, int size)
+{
+	componentTextList.push_back(content);
+	componentTextList.back().setFont(fontList[font]);
+	componentTextList.back().setFillColor(color);
+	componentTextList.back().setString(text);
+	componentTextList.back().setPosition(x,y);
+	componentTextList.back().setCharacterSize(size);
 }
 
 void InterfaceTemplate::draw()

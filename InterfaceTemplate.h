@@ -12,8 +12,9 @@ public:
 	~InterfaceTemplate();
 
 	int InitFont();
-	void createButton(sf::Vector2u coord, const char* text);
-	int addText(sf::Text content, sf::Color color, int font, const char* text,
+	void createButton(sf::Text content, sf::Color color, int font,
+		const char* text, float x, float y, int size);
+	void addText(sf::Text content, sf::Color color, int font, const char* text,
 		float x, float y, int size);
 
 	void draw();
