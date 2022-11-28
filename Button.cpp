@@ -5,10 +5,6 @@ Button::Button(sf::RenderWindow* window)
 	this->window = window;
 }
 
-Button::Button()
-{
-}
-
 Button::~Button()
 {
 }

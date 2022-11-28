@@ -8,11 +8,6 @@ Menu::Menu(sf::RenderWindow* window) : InterfaceTemplate(window)
 	initComponent();
 }
 
-Menu::Menu()
-{
-
-}
-
 Menu::~Menu()
 {
 

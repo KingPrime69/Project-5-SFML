@@ -6,10 +6,6 @@ InterfaceTemplate::InterfaceTemplate(sf::RenderWindow* window) : Button(window)
 	InitFont();
 }
 
-InterfaceTemplate::InterfaceTemplate()
-{
-}
-
 InterfaceTemplate::~InterfaceTemplate()
 {
 }
@@ -27,7 +23,7 @@ void InterfaceTemplate::createButton(sf::Text content, sf::Color color, int font
 	float x, float y, int size, const char* buttonName)
 {
 	componentButtonList[buttonName] = new Button(this->window);
-	componentButtonList
+	//componentButtonList
 	addText(content, color, font, text, x, y, size);
 }
 
