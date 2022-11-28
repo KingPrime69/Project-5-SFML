@@ -1,9 +1,7 @@
 #include "Button.h"
 
-Button::Button(sf::RenderWindow* window, sf::Text content, sf::Color color, int font, const char* text,
-	float x, float y, int size)
+Button::Button(sf::RenderWindow* window)
 {
-
 	this->window = window;
 }
 

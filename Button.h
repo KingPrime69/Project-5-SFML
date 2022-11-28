@@ -1,22 +1,23 @@
 #pragma once
 
 #include <iostream>
-#include <stack>
+#include <map>
 #include <SFML/Graphics.hpp>
 
 class Button
 {
 public:
-	Button(sf::RenderWindow* window, sf::Text content, sf::Color color, int font, const char* text,
-		float x, float y, int size);
-	Button();
+	Button(sf::RenderWindow* window);
 	~Button();
+
+	void setBox();
+
 	bool isPressed();
 	bool isHover();
 	void update();
 protected:
-
-private:
 	sf::RenderWindow* window;
+	std::map<std::string, Button*> componentButtonList;
+private:
 };
 
