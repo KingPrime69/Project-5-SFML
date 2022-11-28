@@ -9,6 +9,7 @@
 #include "SpriteAnim.h"
 #include "Pokemon.h"
 #include "Move.h"
+#include "Combat.h"
 #include "Source.h"
 
 using namespace std;
@@ -20,14 +21,36 @@ int main()
     Pokemon Bulbasaur ("Bulbasaur", 5);
     Bulbasaur.setMove(1, "Tackle");
     Bulbasaur.setMove(2, "Growl");
-    cout << Bulbasaur.getMove(1).getName() << "\n";
-    cout << Bulbasaur.getMove(2).getName() << "\n";
     Pokemon Charmander ("Charmander", 5);
+    Charmander.setMove(1, "Scratch");
+    Charmander.setMove(2, "Growl");
+
+    cout << "Name : " << Bulbasaur.getName() << "\n";
+    cout << "HP : " << Bulbasaur.getCurrentHP() << "\n";
+    cout << "Atk : " << Bulbasaur.getCurrentAtk() << "\n";
+    cout << "Def : " << Bulbasaur.getCurrentDef() << "\n";
+    cout << "SpeAtk : " << Bulbasaur.getCurrentSpeAtk() << "\n";
+    cout << "SpeDef : " << Bulbasaur.getCurrentSpeDef() << "\n";
+    cout << "Speed : " << Bulbasaur.getCurrentSpeed() << "\n\n";
+
+    cout << "Name : " << Charmander.getName() << "\n";
+    cout << "HP : " << Charmander.getCurrentHP() << "\n";
+    cout << "Atk : " << Charmander.getCurrentAtk() << "\n";
+    cout << "Def : " << Charmander.getCurrentDef() << "\n";
+    cout << "SpeAtk : " << Charmander.getCurrentSpeAtk() << "\n";
+    cout << "SpeDef : " << Charmander.getCurrentSpeDef() << "\n";
+    cout << "Speed : " << Charmander.getCurrentSpeed() << "\n\n";
+
+    Combat testcombat(Charmander, Bulbasaur, "none");
+
+    testcombat.Attack(Charmander.getMove(1), testcombat.WildAIAttackDecision(testcombat.getOpponentPokemon()));
+    cout << "Remaining HP : " << testcombat.getOpponentPokemon().getCurrentHP() << "\n";
+    cout << "Remaining HP : " << testcombat.getPlayerPokemon().getCurrentHP() << "\n";
 
     //SpriteAnim anim;
 
-    Game game;
-    game.run();
+    //Game game;
+    //game.run();
     // Create the main window
     //sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML window");
     //window.setFramerateLimit(60);
@@ -52,20 +75,20 @@ int main()
     //int count = 0;
     //int frame = 0;
     //int frame2 = 0;
-    //// Start the game loop
+    // Start the game loop
     //while (window.isOpen())
     //{
-    //    window.handleEvents();
-    //    // Clear screen
-    //    window.clear();
-    //    // Draw the sprite
-    //    //count++;
-    //    //if (count == 10) {
+        //window.handleEvents();
+        // Clear screen
+        //window.clear();
+        // Draw the sprite
+        //count++;
+        //if (count == 10) {
     //    //    salameche.setTextureRect(sf::IntRect(6 + 19 * frame, 2, 18, 27));
     //    //    count = 0;
     //    //    if (frame == 3)frame = 0;
     //    //    else frame++;
-    //    //}
+        //}
 
     //    // Draw the string
     //    for (unsigned int i = 0; i < menu.componentTextList.size(); i++)window.drawText(menu.componentTextList[i]);

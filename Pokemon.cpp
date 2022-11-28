@@ -28,6 +28,7 @@ Pokemon::Pokemon() {
 
 Pokemon::Pokemon(string PokemonName, int PokemonLevel)
 {
+
 	//get pokemon data
 	std::ifstream f("../Project-5-SFML/.json_data/pokemon.json");
 
@@ -44,19 +45,12 @@ Pokemon::Pokemon(string PokemonName, int PokemonLevel)
 	Pokemon::nature = ""; //not defined yet
 	Pokemon::talent = ""; //not defined yet
 
-	Pokemon::HP = data[PokemonName]["HP"];
-	Pokemon::Atk = data[PokemonName]["Atk"];
-	Pokemon::Def = data[PokemonName]["Def"];
-	Pokemon::SpeAtk = data[PokemonName]["SpeAtk"];
-	Pokemon::SpeDef = data[PokemonName]["SpeDef"];
-	Pokemon::Speed = data[PokemonName]["Speed"];
-
-	Pokemon::currentHP = data[PokemonName]["HP"];
-	Pokemon::currentAtk = data[PokemonName]["Atk"];
-	Pokemon::currentDef = data[PokemonName]["Def"];
-	Pokemon::currentSpeAtk = data[PokemonName]["SpeAtk"];
-	Pokemon::currentSpeDef = data[PokemonName]["SpeDef"];
-	Pokemon::currentSpeed = data[PokemonName]["Speed"];
+	Pokemon::SyncLevelStat("HP", PokemonLevel);
+	Pokemon::SyncLevelStat("Atk", PokemonLevel);
+	Pokemon::SyncLevelStat("Def", PokemonLevel);
+	Pokemon::SyncLevelStat("SpeAtk", PokemonLevel);
+	Pokemon::SyncLevelStat("SpeDef", PokemonLevel);
+	Pokemon::SyncLevelStat("Speed", PokemonLevel);
 }
 
 string Pokemon::getName()
@@ -201,31 +195,41 @@ void Pokemon::setMove(int MoveNumber, string MoveName)
 	MoveObject.~Move();
 }
 
-/*void Pokemon::SyncLevelStat(string stat, int PokemonLevel)
+void Pokemon::SyncLevelStat(string stat, int PokemonLevel)
 {
-	switch (stat)
-	{
-	case "HP":
+	//get pokemon data
+	std::ifstream f("../Project-5-SFML/.json_data/pokemon.json");
 
-		break;
-	case "Atk":
+	//parse and serialize JSON
+	json data = json::parse(f);
 
-		break;
-	case "Def":
-
-		break;
-	case "SpeAtk":
-
-		break;
-	case "SpeDef":
-
-		break;
-	case "Speed":
-
-		break;
-	default:
-		break;
+	if (stat == "HP") {
+		Pokemon::HP = (data[Pokemon::name]["HP"] * 2 * PokemonLevel) / 100 + 10 + PokemonLevel;
+		Pokemon::currentHP = Pokemon::HP;
 	}
-}*/
+	else if (stat == "Atk") {
+		Pokemon::Atk = ((data[Pokemon::name]["Atk"] * 2 * PokemonLevel) / 100 + 5); //* Nature
+		Pokemon::currentAtk = Pokemon::Atk;
+	}
+	else if (stat == "Def") {
+		Pokemon::Def = ((data[Pokemon::name]["Def"] * 2 * PokemonLevel) / 100 + 5); //* Nature
+		Pokemon::currentDef = Pokemon::Def;
+	}
+	else if (stat == "SpeAtk"){
+		Pokemon::SpeAtk = ((data[Pokemon::name]["SpeAtk"] * 2 * PokemonLevel) / 100 + 5); //* Nature
+		Pokemon::currentSpeAtk = Pokemon::SpeAtk;
+	}
+	else if (stat == "SpeDef"){
+		Pokemon::SpeDef = ((data[Pokemon::name]["SpeDef"] * 2 * PokemonLevel) / 100 + 5); //* Nature
+		Pokemon::currentSpeDef = Pokemon::SpeDef;
+	}
+	else if (stat == "Speed") {
+		Pokemon::Speed = ((data[Pokemon::name]["Speed"] * 2 * PokemonLevel) / 100 + 5); //* Nature
+		Pokemon::currentSpeed = Pokemon::Speed;
+	}
+	else {
+		cout << "Stat Sync Error : invalid value : [" << stat << "]\n";
+	}
+}
 
 
