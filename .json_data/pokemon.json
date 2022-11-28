@@ -1,0 +1,26 @@
+{
+  "Bulbasaur" : {
+    "Name" : "Bulbizarre",
+    "FirstType": "Grass",
+    "SecondType": "Poison",
+
+    "HP": 45,
+    "Atk": 49,
+    "Def": 49,
+    "SpeAtk": 65,
+    "SpeDef": 65,
+    "Speed": 45
+  },
+  "Charmander" : {
+    "Name" : "Charmander",
+    "FirstType": "Fire",
+    "SecondType": "",
+
+    "HP": 39,
+    "Atk": 52,
+    "Def": 43,
+    "SpeAtk": 60,
+    "SpeDef": 50,
+    "Speed": 65
+  }
+}

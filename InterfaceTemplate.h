@@ -10,6 +10,7 @@ class InterfaceTemplate : public Button
 {
 public:
 	InterfaceTemplate(sf::RenderWindow* window);
+	InterfaceTemplate();
 	~InterfaceTemplate();
 
 	int InitFont();

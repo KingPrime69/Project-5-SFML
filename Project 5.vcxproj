@@ -20,9 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Combat.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="InterfaceTemplate.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Move.cpp" />
+    <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="SpriteAnim.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
@@ -42,9 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Combat.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="InterfaceTemplate.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Move.h" />
+    <ClInclude Include="Pokemon.h" />
+    <ClInclude Include="Source.h" />
     <ClInclude Include="SpriteAnim.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="test.h" />
@@ -103,8 +110,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\qripot\Downloads\SFML-2.5.1\include;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\qripot\Downloads\SFML-2.5.1\lib;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Ytaki\Desktop\Programmation\librairies C++\SFML-2.5.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Ytaki\Desktop\Programmation\librairies C++\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Users\qripot\Downloads\SFML-2.5.1\include;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\include;$(IncludePath)</IncludePath>
@@ -116,6 +123,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>;Json lib\include;Json lib\include;Json lib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +138,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>;Json lib\include;Json lib\include;Json lib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,12 +154,12 @@
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\qripot\Downloads\SFML-2.5.1\include;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ytaki\Desktop\Programmation\librairies C++\SFML-2.5.1\include;C:\SFML-2.5.1\include;C:\Users\qripot\Downloads\SFML-2.5.1\include;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\include;C:\Users\atruchon\source\repos\AnimationTest\SFML\include;json-develop\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\qripot\Downloads\SFML-2.5.1\lib;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Ytaki\Desktop\Programmation\librairies C++\SFML-2.5.1\lib;C:\SFML-2.5.1\lib;C:\Users\qripot\Downloads\SFML-2.5.1\lib;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\lib;C:\Users\atruchon\source\repos\AnimationTest\SFML\ib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-system-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -163,7 +172,7 @@
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\qripot\Downloads\SFML-2.5.1\include;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\qripot\Downloads\SFML-2.5.1\include;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\include;json-develop\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

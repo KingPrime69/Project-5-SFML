@@ -1,20 +1,29 @@
 #include <iostream>
+#include <fstream>
+#include <math.h>
 
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
 #include"Game.h"
 #include "SpriteAnim.h"
+#include "Pokemon.h"
+#include "Move.h"
+#include "Source.h"
 
+using namespace std;
 
 int main()
-{   
-    //Window window;
-    //Menu menu;
-    //test test;
+{
+    //Pokemon Tests
 
-    //menu.initComponent(window.getSize().x, window.getSize().x);
-    //test.initComponent();
+    Pokemon Bulbasaur ("Bulbasaur", 5);
+    Bulbasaur.setMove(1, "Tackle");
+    Bulbasaur.setMove(2, "Growl");
+    cout << Bulbasaur.getMove(1).getName() << "\n";
+    cout << Bulbasaur.getMove(2).getName() << "\n";
+    Pokemon Charmander ("Charmander", 5);
+
     //SpriteAnim anim;
 
     Game game;

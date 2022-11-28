@@ -6,6 +6,10 @@ InterfaceTemplate::InterfaceTemplate(sf::RenderWindow* window)
 	InitFont();
 }
 
+InterfaceTemplate::InterfaceTemplate()
+{
+}
+
 InterfaceTemplate::~InterfaceTemplate()
 {
 }

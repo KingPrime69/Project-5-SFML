@@ -1,0 +1,32 @@
+{
+        "Tackle" : {
+                "Name" : "Tackle",
+                "Type": "Normal",
+                "Category": "Physical",
+                "Power": 40,
+                "Accuracy": 100,
+                "PP": 35,
+                "Contact": true,
+                "Weather": "none"
+        },
+        "Scratch" : {
+                "Name" : "Scratch",
+                "Type": "Normal",
+                "Category": "Physical",
+                "Power": 40,
+                "Accuracy": 100,
+                "PP": 35,
+                "Contact": true,
+                "Weather": "none"
+        },
+        "Growl" : {
+                "Name" : "Growl",
+                "Type": "Normal",
+                "Category": "Status",
+                "Power": 0,
+                "Accuracy": 100,
+                "PP": 40,
+                "Contact": false,
+                "Weather": "none"
+        }
+}

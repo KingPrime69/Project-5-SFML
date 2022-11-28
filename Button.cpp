@@ -7,6 +7,10 @@ Button::Button(sf::RenderWindow* window, sf::Text content, sf::Color color, int 
 	this->window = window;
 }
 
+Button::Button()
+{
+}
+
 Button::~Button()
 {
 }

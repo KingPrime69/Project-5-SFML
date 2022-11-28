@@ -10,6 +10,7 @@ class Menu : public InterfaceTemplate
 {
 public:
 	Menu(sf::RenderWindow* window);
+	Menu();
 	~Menu();
 
 
