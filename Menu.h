@@ -5,7 +5,8 @@
 
 #include "InterfaceTemplate.h"
 
-#define MAX_NUMBER_OF_ITEMS 2
+#define MAX_NUMBER_OF_TEXT 5
+#define MAX_NUMBER_OF_SPRITE 1
 class Menu : public InterfaceTemplate
 {
 public:
@@ -17,7 +18,7 @@ public:
 
 private:
 
-	sf::Text componentText[MAX_NUMBER_OF_ITEMS];
-
+	sf::Text componentText[MAX_NUMBER_OF_TEXT];
+	sf::Sprite componentSprite[MAX_NUMBER_OF_SPRITE];
 };
 

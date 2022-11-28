@@ -14,7 +14,8 @@ public:
 
 	int InitFont();
 	void createButton(sf::Text content, sf::Color color, int font,
-		const char* text, float x, float y, int size, const char* buttonName);
+		const char* text, float x, float y, int sizeText,
+		sf::Sprite buttonSPrite, const char* buttonName, int bgTexture, int sizeBox);
 	void addText(sf::Text content, sf::Color color, int font, 
 		const char* text, float x, float y, int size);
 

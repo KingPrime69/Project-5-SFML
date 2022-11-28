@@ -20,8 +20,14 @@ void Menu::initComponent()
 	this->addText(componentText[1], sf::Color::Blue, 1, "Poke Moon", (this->window->getSize().x / 3), (this->window->getSize().y / (3 * 2)), 100);
 	//### ~Title ###//
 
+	//### ~TM ###//
+	this->addText(componentText[2], sf::Color::Black, 0, "TM", (this->window->getSize().x / 3)+500, (this->window->getSize().y / (3 * 2)+100), 10);
+	this->addText(componentText[3], sf::Color::White, 1, "TM", (this->window->getSize().x / 3)+500, (this->window->getSize().y / (3 * 2)+100), 10);
+	//### ~TM ###//
+	
 	//### Game Button ###//
-
+	this->createButton(componentText[4], sf::Color::Magenta, 0, "PLAYEUX", (this->window->getSize().x / 3) + 150, (this->window->getSize().y / (3 * 2) + 250),
+		50, componentSprite[0], "Start", 0, 10);
 	//### ~Game Button ###//
 
 	//float width = this->window->getSize().x;
