@@ -16,33 +16,26 @@ Menu::~Menu()
 void Menu::initComponent()
 {	
 	//### Title ###//
-	this->addText(componentText[0], sf::Color::Yellow, 0, "Poke Moon", (this->window->getSize().x / 3), (this->window->getSize().y / (3 * 2)), 100);
-	this->addText(componentText[1], sf::Color::Blue, 1, "Poke Moon", (this->window->getSize().x / 3), (this->window->getSize().y / (3 * 2)), 100);
+	this->addText(componentText[0], sf::Color::Yellow, 0, "Poke Moon", (this->window->getSize().x / 3), (1/this->window->getSize().y), 100, true);
+	this->addText(componentText[1], sf::Color::Blue, 1, "Poke Moon", (this->window->getSize().x / 3), (1/this->window->getSize().y), 100, true);
 	//### ~Title ###//
 
-	//### ~TM ###//
-	this->addText(componentText[2], sf::Color::Black, 0, "TM", (this->window->getSize().x / 3)+500, (this->window->getSize().y / (3 * 2)+100), 10);
-	this->addText(componentText[3], sf::Color::White, 1, "TM", (this->window->getSize().x / 3)+500, (this->window->getSize().y / (3 * 2)+100), 10);
+	//### TM ###//
+	this->addText(componentText[2], sf::Color::Black, 0, "TM", (this->window->getSize().x / 3)+450, (1/this->window->getSize().y / 5+100), 18, false);
+	this->addText(componentText[3], sf::Color::White, 1, "TM", (this->window->getSize().x / 3)+450, (1/this->window->getSize().y / 5+100), 18, false);
 	//### ~TM ###//
 	
 	//### Game Button ###//
-	this->createButton(componentText[4], sf::Color::Magenta, 0, "PLAYEUX", (this->window->getSize().x / 3) + 150, (this->window->getSize().y / (3 * 2) + 250),
-		50, componentSprite[0], "Start", 0, 10);
+	this->createButton(componentText[4], sf::Color::Magenta, 0, "PLAYEUX", 
+		(this->window->getSize().x / 3) + 150, (this->window->getSize().y / 6 + 250),
+		50, componentSprite[0], "Start", 0, 10,
+		17, 98, 263, 103, true);
 	//### ~Game Button ###//
 
-	//float width = this->window->getSize().x;
-	//float height = this->window->getSize().y;
+	this->createButton(componentText[4], sf::Color::Magenta, 0, "Setting",
+		(this->window->getSize().x / 3) + 150, (this->window->getSize().y / 6 + 450),
+		50, componentSprite[1], "param", 0, 10,
+		17, 98, 263, 103, true);
 
-	//if (!title.loadFromFile("pokemonSolid.ttf"))return EXIT_FAILURE;
-	//componentText[0].setFont(title);
-	//componentText[0].setFillColor(sf::Color::Yellow);
-	//componentText[0].setString("Poke Moon");
-	//componentText[0].setPosition(sf::Vector2f(width / 3, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
-	//componentText[0].setCharacterSize(100);
-	//if (!title2.loadFromFile("pokemonHollow.ttf"))return EXIT_FAILURE;
-	//componentText[1].setFont(title2);
-	//componentText[1].setFillColor(sf::Color::Blue);
-	//componentText[1].setString("Poke Moon");
-	//componentText[1].setPosition(sf::Vector2f(width / 3, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
-	//componentText[1].setCharacterSize(100);
+	this->createBackground(0);
 }

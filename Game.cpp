@@ -68,7 +68,6 @@ int Game::run()
     //salameche.setPosition(300, 300);
 
     
-    int count = 0;
     while (this->window.isOpen())
     {
         this->handleEvents();
@@ -85,11 +84,7 @@ int Game::run()
         // Draw the string
 
         this->viewManager->drawCurrentView();
-        count++;
-        if (count == 160) {
-            //this->viewManager->initView();
-            count = 0;
-        }
+        this->viewManager->swapView();
 
         //this->window.drawSprite(salameche);
 

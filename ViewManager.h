@@ -14,7 +14,7 @@ public:
 	ViewManager(sf::RenderWindow *window);
 	~ViewManager();
 
-	void initView();
+	void swapView();
 	void drawCurrentView();
 
 

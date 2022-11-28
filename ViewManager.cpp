@@ -12,9 +12,17 @@ ViewManager::~ViewManager()
 
 }
 
-void ViewManager::initView()
+void ViewManager::swapView()
 {
-	this->view.push(new Test(this->window));
+	if (this->view.top()->getActionButton() != nullptr) 
+	{
+		const char* action = this->view.top()->getActionButton();
+		std::cout << action << std::endl;
+
+		//### put view with here name action here ###//
+		if (action == "Start") this->view.push(new Test(this->window));
+	}
+	//this->view.push(new Test(this->window));
 	//this->view.top().
 	//this->menu->initComponent();
 }

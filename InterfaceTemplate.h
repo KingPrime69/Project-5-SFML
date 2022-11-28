@@ -15,9 +15,19 @@ public:
 	int InitFont();
 	void createButton(sf::Text content, sf::Color color, int font,
 		const char* text, float x, float y, int sizeText,
-		sf::Sprite buttonSPrite, const char* buttonName, int bgTexture, int sizeBox);
+		sf::Sprite buttonSPrite, const char* buttonName, int bgTexture, int sizeBox,
+		int rectLeft, int rectTop, int rectWidth, int rectHeight, bool alignCenter);
+
+	const char* getActionButton();
+
+
 	void addText(sf::Text content, sf::Color color, int font, 
-		const char* text, float x, float y, int size);
+		const char* text, float x, float y, int size, bool alignCenter);
+
+
+	int InitBackground();
+	void createBackground(int backgroungTexture);
+
 
 	void draw();
 
@@ -26,6 +36,8 @@ protected:
 	sf::RenderWindow* window;
 	std::vector<sf::Text> componentTextList;
 private:
+	sf::Texture bgTextureList[1];
+	sf::Sprite background;
 	sf::Font fontList[2];
 	sf::Font pokemonSolid;
 	sf::Font pokemonHollow;

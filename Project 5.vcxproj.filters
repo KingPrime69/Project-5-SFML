@@ -88,6 +88,12 @@
     <Image Include="sprite\player.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="sprite\buttonKiwi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="sprite\StartBg.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">

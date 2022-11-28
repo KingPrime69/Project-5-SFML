@@ -43,6 +43,7 @@
     <Image Include="sprite\player.png" />
     <Image Include="sprite\Sprite-Starter.png" />
     <Image Include="sprite\spriteSheet.png" />
+    <Image Include="sprite\StartBg.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
