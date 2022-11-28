@@ -1,18 +1,22 @@
 #pragma once
 
 #include <iostream>
-#include <array>
 #include <SFML/Graphics.hpp>
 
-#define MAX_NUMBER_OF_ITEMS 3
-class test
+#include "InterfaceTemplate.h"
+
+#define MAX_NUMBER_OF_ITEMS 2
+class Test : public InterfaceTemplate
 {
 public:
-	std::array<sf::Sprite, MAX_NUMBER_OF_ITEMS> compSpriteList;
-	int initComponent();
+	Test(sf::RenderWindow* window);
+	~Test();
+
+
+	void initComponent();
 
 private:
-	sf::Texture texture;
-	sf::Sprite componentSprite[MAX_NUMBER_OF_ITEMS];
-};
 
+	sf::Text componentText[MAX_NUMBER_OF_ITEMS];
+
+};

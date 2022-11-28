@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="InterfaceTemplate.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -40,6 +41,7 @@
     <Image Include="sprite\spriteSheet.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="InterfaceTemplate.h" />
     <ClInclude Include="Menu.h" />

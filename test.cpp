@@ -1,26 +1,42 @@
 #include "test.h"
 
-int test::initComponent()
+
+
+Test::Test(sf::RenderWindow* window) : InterfaceTemplate(window)
 {
-	if (!texture.loadFromFile("sprite/Sprite-Starter.png"))return EXIT_FAILURE;
+	this->window = window;
+	initComponent();
+}
 
-	componentSprite[0].setTexture(texture);
-	componentSprite[0].setTextureRect(sf::IntRect(1, 0, 13, 16));
-	componentSprite[0].scale(5, 5);
-	componentSprite[0].setPosition(500, 100);
+Test::~Test()
+{
 
-	componentSprite[1].setTexture(texture);
-	componentSprite[1].setTextureRect(sf::IntRect(66, 1, 13, 16));
-	componentSprite[1].scale(5, 5);
-	componentSprite[1].setPosition(600, 100);
+}
 
+void Test::initComponent()
+{
+	//### Title ###//
+	this->addText(componentText[0], sf::Color::Yellow, 0, "Test", (this->window->getSize().x / 3), (this->window->getSize().y / (3 * 2)), 100);
+	this->addText(componentText[1], sf::Color::Blue, 1, "Test", (this->window->getSize().x / 3), (this->window->getSize().y / (3 * 2)), 100);
+	//### ~Title ###//
 
-	componentSprite[2].setTexture(texture);
-	componentSprite[2].setTextureRect(sf::IntRect(130, 0, 13, 16));
-	componentSprite[2].scale(5, 5);
-	componentSprite[2].setPosition(700, 100);
+	//### Game Button ###//
 
-	for (unsigned int i = 0; i < MAX_NUMBER_OF_ITEMS; i++) {
-		compSpriteList[i] = componentSprite[i];
-	}
+	//### ~Game Button ###//
+
+	//float width = this->window->getSize().x;
+	//float height = this->window->getSize().y;
+
+	//if (!title.loadFromFile("pokemonSolid.ttf"))return EXIT_FAILURE;
+	//componentText[0].setFont(title);
+	//componentText[0].setFillColor(sf::Color::Yellow);
+	//componentText[0].setString("Poke Moon");
+	//componentText[0].setPosition(sf::Vector2f(width / 3, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+	//componentText[0].setCharacterSize(100);
+	//if (!title2.loadFromFile("pokemonHollow.ttf"))return EXIT_FAILURE;
+	//componentText[1].setFont(title2);
+	//componentText[1].setFillColor(sf::Color::Blue);
+	//componentText[1].setString("Poke Moon");
+	//componentText[1].setPosition(sf::Vector2f(width / 3, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+	//componentText[1].setCharacterSize(100);
 }

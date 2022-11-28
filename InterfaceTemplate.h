@@ -4,8 +4,9 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+#include "Button.h"
 
-class InterfaceTemplate
+class InterfaceTemplate : public Button
 {
 public:
 	InterfaceTemplate(sf::RenderWindow* window);

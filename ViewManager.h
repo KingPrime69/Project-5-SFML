@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Menu.h"
+#include "test.h"
 
 class ViewManager
 {

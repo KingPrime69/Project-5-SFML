@@ -54,8 +54,6 @@ void Game::showView()
 
 int Game::run()
 {
-
-    this->viewManager->initView();
     // Load a sprite to display
     //sf::Texture texture;
     //if (!texture.loadFromFile("sprite/player (1).png"))return EXIT_FAILURE;
@@ -70,6 +68,7 @@ int Game::run()
     //salameche.setPosition(300, 300);
 
     
+    int count = 0;
     while (this->window.isOpen())
     {
         this->handleEvents();
@@ -86,6 +85,11 @@ int Game::run()
         // Draw the string
 
         this->viewManager->drawCurrentView();
+        count++;
+        if (count == 160) {
+            this->viewManager->initView();
+            count = 0;
+        }
 
         //this->window.drawSprite(salameche);
 

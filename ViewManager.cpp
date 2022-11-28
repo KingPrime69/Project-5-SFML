@@ -14,6 +14,7 @@ ViewManager::~ViewManager()
 
 void ViewManager::initView()
 {
+	this->view.push(new Test(this->window));
 	//this->view.top().
 	//this->menu->initComponent();
 }
