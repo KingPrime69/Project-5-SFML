@@ -49,8 +49,8 @@ int main()
 
     //SpriteAnim anim;
 
-    //Game game;
-    //game.run();
+    Game game;
+    game.run();
     // Create the main window
     //sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML window");
     //window.setFramerateLimit(60);

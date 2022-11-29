@@ -6,11 +6,11 @@
 #include "InterfaceTemplate.h"
 
 #define MAX_NUMBER_OF_ITEMS 2
-class Test : public InterfaceTemplate
+class InGame : public InterfaceTemplate
 {
 public:
-	Test(sf::RenderWindow* window);
-	~Test();
+	InGame(sf::RenderWindow* window, bool menu);
+	~InGame();
 
 
 	void initComponent();
@@ -18,5 +18,5 @@ public:
 private:
 
 	sf::Text componentText[MAX_NUMBER_OF_ITEMS];
-
+	bool showMenu;
 };

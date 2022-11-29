@@ -26,16 +26,16 @@ void Menu::initComponent()
 	//### ~TM ###//
 	
 	//### Game Button ###//
-	this->createButton(componentText[4], sf::Color::Magenta, 0, "PLAYEUX", 
-		(this->window->getSize().x / 3) + 150, (this->window->getSize().y / 6 + 250),
-		50, componentSprite[0], "Start", 0, 10,
-		17, 98, 263, 103, true);
+	this->createButton(componentText[4], sf::Color::Black, sf::Color::White, 2, "PLAYEUX",
+		(this->window->getSize().x / 3) + 150, (this->window->getSize().y / 6 + 250), 0, 25,
+		50, componentSprite[0], "Start", 0, sf::Vector2f(0.25,0.25),
+		47, 66, 1273, 462, true);
 	//### ~Game Button ###//
 
-	this->createButton(componentText[4], sf::Color::Magenta, 0, "Setting",
-		(this->window->getSize().x / 3) + 150, (this->window->getSize().y / 6 + 450),
-		50, componentSprite[1], "param", 0, 10,
-		17, 98, 263, 103, true);
+	this->createButton(componentText[4], sf::Color::Black, sf::Color::White, 2, "Setting",
+		(this->window->getSize().x / 3) + 150, (this->window->getSize().y / 6 + 450), 0, 25,
+		50, componentSprite[1], "param", 0, sf::Vector2f(0.25, 0.25),
+		47, 66, 1273, 462, true);
 
 	this->createBackground(0);
 }

@@ -29,10 +29,11 @@
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="SpriteAnim.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="InGame.cpp" />
     <ClCompile Include="ViewManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="ortemmn.ttf" />
     <Font Include="pokemonSolid.ttf" />
     <Font Include="pokemonHollow.ttf" />
   </ItemGroup>
@@ -41,6 +42,7 @@
     <Image Include="sprite\buttonKiwi.png" />
     <Image Include="sprite\player (1).png" />
     <Image Include="sprite\player.png" />
+    <Image Include="sprite\Red-Button.png" />
     <Image Include="sprite\Sprite-Starter.png" />
     <Image Include="sprite\spriteSheet.png" />
     <Image Include="sprite\StartBg.jpg" />
@@ -56,7 +58,7 @@
     <ClInclude Include="Source.h" />
     <ClInclude Include="SpriteAnim.h" />
     <ClInclude Include="SpriteManager.h" />
-    <ClInclude Include="test.h" />
+    <ClInclude Include="InGame.h" />
     <ClInclude Include="ViewManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

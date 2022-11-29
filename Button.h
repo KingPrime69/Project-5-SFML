@@ -15,13 +15,17 @@ public:
 	int initTexture();
 
 	void setBox(sf::Text* text, sf::Sprite buttonSPrite, 
-		int bgTexture, float x, float y, int size,
-		int rectLeft, int rectTop, int rectWidth, int rectHeight,
-		const char* action, bool alignCenter);
+		sf::Color colorHover, int bgTexture, float x, float y, 
+		sf::Vector2f size,int rectLeft, int rectTop, int rectWidth, 
+		int rectHeight, const char* action, bool alignCenter);
 
 	void draw();
 
 	const char* getAction();
+	float getXsize();
+	float getYsize();
+
+
 	bool isPressed();
 	bool isHover();
 	void update();

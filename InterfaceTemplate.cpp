@@ -17,16 +17,17 @@ int InterfaceTemplate::InitFont()
 	fontList[0] = pokemonSolid;
 	if (!pokemonHollow.loadFromFile("pokemonHollow.ttf"))return EXIT_FAILURE;
 	fontList[1] = pokemonHollow;
+	if (!fontList[2].loadFromFile("ortemmn.ttf"))return EXIT_FAILURE;
 	return 0;
 }
 
-void InterfaceTemplate::createButton(sf::Text content, sf::Color color, int font, const char* text,
-	float x, float y, int sizeText, sf::Sprite buttonSPrite, const char* buttonName, 
-	int bgTexture, int sizeBox, int rectLeft, int rectTop, int rectWidth, int rectHeight, bool alignCenter)
+void InterfaceTemplate::createButton(sf::Text content, sf::Color color, sf::Color colorHovere, int font, const char* text,
+	float x, float y, float xIncrement, float yIncrement, int sizeText, sf::Sprite buttonSPrite, const char* buttonName, 
+	int bgTexture, sf::Vector2f sizeBox, int rectLeft, int rectTop, int rectWidth, int rectHeight, bool alignCenter)
 {
 	componentButtonList[buttonName] = new Button(this->window);
-	addText(content, color, font, text, x+20, y+10, sizeText, alignCenter);
-	componentButtonList[buttonName]->setBox(&componentTextList.back(), buttonSPrite, bgTexture, x, y, sizeBox,
+	addText(content, color, font, text, x+xIncrement, y+yIncrement, sizeText, alignCenter);
+	componentButtonList[buttonName]->setBox(&componentTextList.back(), buttonSPrite, colorHovere, bgTexture, x, y, sizeBox,
 	rectLeft, rectTop, rectWidth, rectHeight, buttonName, alignCenter);
 }
 
@@ -55,7 +56,7 @@ void InterfaceTemplate::addText(sf::Text content, sf::Color color, int font, con
 
 	if (alignCenter) 
 	{
-		int calcCenter = (this->window->getSize().x - componentTextList.back().getLocalBounds().width)/2;
+		int calcCenter = (this->window->getSize().x - componentTextList.back().getGlobalBounds().width)/2;
 		componentTextList.back().setPosition(calcCenter, y);
 	}
 	else componentTextList.back().setPosition(x,y);
@@ -78,6 +79,10 @@ void InterfaceTemplate::createBackground(int backgroungTexture)
 	float yWIN = this->window->getSize().y;
 	float yScale = yWIN / yBG;
 	this->background.setScale(xScale, yScale);
+}
+
+void InterfaceTemplate::getCurrentView()
+{
 }
 
 

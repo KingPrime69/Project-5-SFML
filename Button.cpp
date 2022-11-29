@@ -16,21 +16,23 @@ Button::~Button()
 
 int Button::initTexture()
 {
-	if (!bgButtonList[0].loadFromFile("sprite/buttonKiwi.png"))return EXIT_FAILURE;
+	if (!bgButtonList[0].loadFromFile("sprite/Red-Button.png"))return EXIT_FAILURE;
 	return 0;
 }
 
-void Button::setBox(sf::Text* text, sf::Sprite buttonSPrite, int bgTexture, float x, float y, int size,
+void Button::setBox(sf::Text* text, sf::Sprite buttonSPrite, sf::Color colorHover, int bgTexture, float x, float y, sf::Vector2f size,
 	int rectLeft, int rectTop, int rectWidth, int rectHeight, const char* action, bool alignCenter)
 {
 	this->text = text;
-	this->text->setOutlineColor(sf::Color::Blue);
+	this->text->setOutlineColor(colorHover);
 
 	this->Sprite = buttonSPrite;
+	this->Sprite.setScale(size);
 	this->Sprite.setTexture(bgButtonList[bgTexture]);
 	this->Sprite.setTextureRect(sf::IntRect(rectLeft, rectTop, rectWidth, rectHeight));
 	this->Sprite.setPosition(x, y);
 
+	this->rectButton.setScale(size);
 	this->rectButton.setPosition(sf::Vector2f(x, y));
 	this->rectButton.setSize(sf::Vector2f(rectWidth, rectHeight));
 	this->rectButton.setOutlineThickness(3);
@@ -41,7 +43,7 @@ void Button::setBox(sf::Text* text, sf::Sprite buttonSPrite, int bgTexture, floa
 
 	if (alignCenter)
 	{
-		int calcCenter = (this->window->getSize().x - this->Sprite.getLocalBounds().width) / 2;
+		int calcCenter = (this->window->getSize().x - this->Sprite.getGlobalBounds().width) / 2;
 		this->Sprite.setPosition(calcCenter, y);
 		this->rectButton.setPosition(calcCenter, y);
 	}
@@ -61,6 +63,16 @@ void Button::draw()
 const char* Button::getAction()
 {
 	return this->action;
+}
+
+float Button::getXsize()
+{
+	return this->rectButton.getSize().x;
+}
+
+float Button::getYsize()
+{
+	return this->rectButton.getSize().y;
 }
 
 bool Button::isPressed()
