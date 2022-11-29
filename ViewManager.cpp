@@ -13,7 +13,11 @@ ViewManager::ViewManager(sf::RenderWindow *window)
 
 ViewManager::~ViewManager()
 {
-
+	while (!this->view.empty())
+	{
+		delete this->view.top();
+		this->view.pop();
+	}
 }
 
 void ViewManager::updateKeytime()
@@ -58,6 +62,8 @@ void ViewManager::swapView()
 		this->avaible = getKeytime();
 		if (this->avaible)
 		{
+			delete this->view.top();
+			this->view.pop();
 			this->showMenuInGame = false;
 			this->view.push(new InGame(this->window, this->showMenuInGame));
 		}

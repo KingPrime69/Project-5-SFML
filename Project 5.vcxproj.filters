@@ -42,9 +42,6 @@
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
     <ClCompile Include="Pokemon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -63,12 +60,21 @@
     <ClCompile Include="Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InGame.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="DropDown.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Font Include="pokemonHollow.ttf">
       <Filter>Resource Files</Filter>
     </Font>
     <Font Include="pokemonSolid.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="ortemmn.ttf">
       <Filter>Resource Files</Filter>
     </Font>
   </ItemGroup>
@@ -94,6 +100,9 @@
     <Image Include="sprite\StartBg.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="sprite\Red-Button.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -109,9 +118,6 @@
       <Filter>Header Files\Sprite</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="test.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="Pokemon.h">
@@ -130,6 +136,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InGame.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="DropDown.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

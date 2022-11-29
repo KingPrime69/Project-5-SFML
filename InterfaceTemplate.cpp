@@ -62,6 +62,22 @@ void InterfaceTemplate::addText(sf::Text content, sf::Color color, int font, con
 	else componentTextList.back().setPosition(x,y);
 }
 
+void InterfaceTemplate::addDropDownText(sf::Text content, sf::Color color, 
+	int font, const char* text, float x, float y, int size, bool alignCenter)
+{
+	componentDropDownTextList.push_back(content);
+	componentDropDownTextList.back().setFont(fontList[font]);
+	componentDropDownTextList.back().setFillColor(color);
+	componentDropDownTextList.back().setString(text);
+	componentDropDownTextList.back().setCharacterSize(size);
+
+	if (alignCenter)
+	{
+		int calcCenter = (this->window->getSize().x - componentDropDownTextList.back().getGlobalBounds().width) / 2;
+		componentDropDownTextList.back().setPosition(calcCenter, y);
+	}
+	else componentTextList.back().setPosition(x, y);
+}
 
 int InterfaceTemplate::InitBackground()
 {
@@ -79,10 +95,6 @@ void InterfaceTemplate::createBackground(int backgroungTexture)
 	float yWIN = this->window->getSize().y;
 	float yScale = yWIN / yBG;
 	this->background.setScale(xScale, yScale);
-}
-
-void InterfaceTemplate::getCurrentView()
-{
 }
 
 

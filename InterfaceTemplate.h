@@ -25,12 +25,12 @@ public:
 
 	void addText(sf::Text content, sf::Color color, int font, 
 		const char* text, float x, float y, int size, bool alignCenter);
+	void addDropDownText(sf::Text content, sf::Color color, int font,
+		const char* text, float x, float y, int size, bool alignCenter);
 
 
 	int InitBackground();
 	void createBackground(int backgroungTexture);
-
-	void getCurrentView();
 
 	void draw();
 
@@ -38,6 +38,7 @@ public:
 protected:
 	sf::RenderWindow* window;
 	std::vector<sf::Text> componentTextList;
+	std::vector<sf::Text> componentDropDownTextList;
 private:
 	sf::Texture bgTextureList[1];
 	sf::Sprite background;

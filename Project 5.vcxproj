@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Combat.cpp" />
+    <ClCompile Include="DropDown.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="InterfaceTemplate.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -50,6 +51,7 @@
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="Combat.h" />
+    <ClInclude Include="DropDown.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="InterfaceTemplate.h" />
     <ClInclude Include="Menu.h" />
