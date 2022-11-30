@@ -24,7 +24,7 @@ public:
 
 private:
 	//Menu* menu;
-	std::stack<InterfaceTemplate*> view;
+	std::stack<ViewTemplate*> view;
 	sf::RenderWindow *window;
 	sf::Keyboard keyboard;
 	std::string currentView;

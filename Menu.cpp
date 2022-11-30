@@ -2,7 +2,7 @@
 
 
 
-Menu::Menu(sf::RenderWindow* window) : InterfaceTemplate(window)
+Menu::Menu(sf::RenderWindow* window) : ViewTemplate(window)
 {
 	this->window = window;
 	initComponent();

@@ -21,9 +21,10 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Combat.cpp" />
+    <ClCompile Include="CombatView.cpp" />
     <ClCompile Include="DropDown.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="InterfaceTemplate.cpp" />
+    <ClCompile Include="ViewTemplate.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Move.cpp" />
     <ClCompile Include="Pokemon.cpp" />
@@ -41,6 +42,7 @@
   <ItemGroup>
     <Image Include="sprite\AManim.png" />
     <Image Include="sprite\buttonKiwi.png" />
+    <Image Include="sprite\Fleches.png" />
     <Image Include="sprite\player (1).png" />
     <Image Include="sprite\player.png" />
     <Image Include="sprite\Red-Button.png" />
@@ -51,9 +53,10 @@
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="Combat.h" />
+    <ClInclude Include="CombatView.h" />
     <ClInclude Include="DropDown.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="InterfaceTemplate.h" />
+    <ClInclude Include="ViewTemplate.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Move.h" />
     <ClInclude Include="Pokemon.h" />

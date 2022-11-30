@@ -39,7 +39,7 @@ private:
 	sf::RectangleShape rectButton;
 	sf::Mouse mouse;
 	sf::Sprite Sprite;
-	sf::Texture bgButtonList[1];
+	sf::Texture bgButtonList[2];
 
 };
 

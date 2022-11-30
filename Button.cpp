@@ -17,6 +17,7 @@ Button::~Button()
 int Button::initTexture()
 {
 	if (!bgButtonList[0].loadFromFile("sprite/Red-Button.png"))return EXIT_FAILURE;
+	if (!bgButtonList[1].loadFromFile("sprite/Fleches.png"))return EXIT_FAILURE;
 	return 0;
 }
 

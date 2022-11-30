@@ -6,11 +6,11 @@
 
 #include "Button.h"
 
-class InterfaceTemplate : public Button
+class ViewTemplate : public Button
 {
 public:
-	InterfaceTemplate(sf::RenderWindow* window);
-	~InterfaceTemplate();
+	ViewTemplate(sf::RenderWindow* window);
+	~ViewTemplate();
 
 	int InitFont();
 	void createButton(sf::Text content, sf::Color color, 

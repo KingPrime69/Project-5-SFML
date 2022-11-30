@@ -1,6 +1,6 @@
-#include "InterfaceTemplate.h"
+#include "ViewTemplate.h"
 
-InterfaceTemplate::InterfaceTemplate(sf::RenderWindow* window) : Button(window)
+ViewTemplate::ViewTemplate(sf::RenderWindow* window) : Button(window)
 {
 	this->window = window;
 	this->pos = 0;
@@ -12,11 +12,11 @@ InterfaceTemplate::InterfaceTemplate(sf::RenderWindow* window) : Button(window)
 	InitBackground();
 }
 
-InterfaceTemplate::~InterfaceTemplate()
+ViewTemplate::~ViewTemplate()
 {
 }
 
-int InterfaceTemplate::InitFont()
+int ViewTemplate::InitFont()
 {
 	if (!pokemonSolid.loadFromFile("pokemonSolid.ttf"))return EXIT_FAILURE;
 	fontList[0] = pokemonSolid;
@@ -26,7 +26,7 @@ int InterfaceTemplate::InitFont()
 	return 0;
 }
 
-void InterfaceTemplate::createButton(sf::Text content, sf::Color color, sf::Color colorHovere, int font, const char* text,
+void ViewTemplate::createButton(sf::Text content, sf::Color color, sf::Color colorHovere, int font, const char* text,
 	float x, float y, float xIncrement, float yIncrement, int sizeText, sf::Sprite buttonSPrite, const char* buttonName, 
 	int bgTexture, sf::Vector2f sizeBox, int rectLeft, int rectTop, int rectWidth, int rectHeight, bool alignCenter)
 {
@@ -37,7 +37,7 @@ void InterfaceTemplate::createButton(sf::Text content, sf::Color color, sf::Colo
 	this->colorHover = colorHovere;
 }
 
-const char* InterfaceTemplate::getActionButton()
+const char* ViewTemplate::getActionButton()
 {
 	if (!componentButtonTextList.empty())
 	{
@@ -48,7 +48,7 @@ const char* InterfaceTemplate::getActionButton()
 }
 
 
-void InterfaceTemplate::addText(sf::Text content, sf::Color color, int font, const char* text,
+void ViewTemplate::addText(sf::Text content, sf::Color color, int font, const char* text,
 	float x, float y, int size, bool alignCenter)
 {
 	componentTextList.push_back(content);
@@ -65,7 +65,7 @@ void InterfaceTemplate::addText(sf::Text content, sf::Color color, int font, con
 	else componentTextList.back().setPosition(x,y);
 }
 
-void InterfaceTemplate::addButtonText(sf::Text content, sf::Color color, int font, const char* text,
+void ViewTemplate::addButtonText(sf::Text content, sf::Color color, int font, const char* text,
 	float x, float y, int size, bool alignCenter, const char* action)
 {
 	componentButtonTextList.push_back(content);
@@ -82,13 +82,13 @@ void InterfaceTemplate::addButtonText(sf::Text content, sf::Color color, int fon
 	else componentButtonTextList.back().setPosition(x, y);
 }
 
-int InterfaceTemplate::InitBackground()
+int ViewTemplate::InitBackground()
 {
 	if (!bgTextureList[0].loadFromFile("sprite/StartBg.jpg"))return EXIT_FAILURE;
 	return 0;
 }
 
-void InterfaceTemplate::createBackground(int backgroungTexture)
+void ViewTemplate::createBackground(int backgroungTexture)
 {
 	this->background.setTexture(bgTextureList[backgroungTexture]);
 	float xBG = this->background.getTexture()->getSize().x;
@@ -100,13 +100,13 @@ void InterfaceTemplate::createBackground(int backgroungTexture)
 	this->background.setScale(xScale, yScale);
 }
 
-void InterfaceTemplate::updateKeytime()
+void ViewTemplate::updateKeytime()
 {
 	if (this->Keytime < this->MaxKeytime)
 		this->Keytime += 0.08f;
 }
 
-bool InterfaceTemplate::getKeytime()
+bool ViewTemplate::getKeytime()
 {
 	if (this->Keytime >= this->MaxKeytime)
 	{
@@ -116,7 +116,7 @@ bool InterfaceTemplate::getKeytime()
 	return false;
 }
 
-void InterfaceTemplate::initSelect()
+void ViewTemplate::initSelect()
 {
 	this->length = componentButtonTextList.size();
 	this->posMin = 0;
@@ -129,7 +129,7 @@ void InterfaceTemplate::initSelect()
 	this->one = true;
 }
 
-void InterfaceTemplate::selectedButton()
+void ViewTemplate::selectedButton()
 {
 	if (this->one == false && !componentButtonList.empty()) this->initSelect();
 
@@ -139,9 +139,10 @@ void InterfaceTemplate::selectedButton()
 		if (this->pos < length-1 && avaible)
 		{
 			++this->pos;
+			int posN = this->pos - 1;
 			componentButtonTextList[this->pos].setOutlineColor(this->colorHover);
 			componentButtonTextList[this->pos].setOutlineThickness(5);
-			componentButtonTextList[this->pos -1].setOutlineThickness(0);
+			componentButtonTextList[posN].setOutlineThickness(0);
 		}
 	}
 
@@ -158,7 +159,7 @@ void InterfaceTemplate::selectedButton()
 }
 
 
-void InterfaceTemplate::draw()
+void ViewTemplate::draw()
 {
 	updateKeytime();
 	selectedButton();
