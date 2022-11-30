@@ -1,11 +1,14 @@
 #pragma once
 
 #include <iostream>
+#include <array>
 #include <SFML/Graphics.hpp>
 
 #include "InterfaceTemplate.h"
 
-#define MAX_NUMBER_OF_ITEMS 2
+
+#define MAX_NUMBER_OF_TEXT 4
+#define MAX_NUMBER_OF_SPRITE 4
 class InGame : public InterfaceTemplate
 {
 public:
@@ -16,7 +19,7 @@ public:
 	void initComponent();
 
 private:
-
-	sf::Text componentText[MAX_NUMBER_OF_ITEMS];
+	sf::Sprite componentButton[MAX_NUMBER_OF_SPRITE];
+	std::array <sf::Text, MAX_NUMBER_OF_TEXT> componentText;
 	bool showMenu;
 };

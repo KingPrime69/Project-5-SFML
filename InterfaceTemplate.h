@@ -25,12 +25,19 @@ public:
 
 	void addText(sf::Text content, sf::Color color, int font, 
 		const char* text, float x, float y, int size, bool alignCenter);
-	void addDropDownText(sf::Text content, sf::Color color, int font,
-		const char* text, float x, float y, int size, bool alignCenter);
+	void addButtonText(sf::Text content, sf::Color color, int font,
+		const char* text, float x, float y, int size, bool alignCenter,
+		const char* action);
 
 
 	int InitBackground();
 	void createBackground(int backgroungTexture);
+
+	void updateKeytime();
+	bool getKeytime();
+
+	void initSelect();
+	void selectedButton();
 
 	void draw();
 
@@ -38,12 +45,26 @@ public:
 protected:
 	sf::RenderWindow* window;
 	std::vector<sf::Text> componentTextList;
-	std::vector<sf::Text> componentDropDownTextList;
+	std::vector<sf::Text> componentButtonTextList;
 private:
 	sf::Texture bgTextureList[1];
 	sf::Sprite background;
 	sf::Font fontList[3];
 	sf::Font pokemonSolid;
 	sf::Font pokemonHollow;
+
+	sf::Keyboard keyboard;
+	int pos;
+	int length;
+	int posMin;
+	bool one;
+
+	float MaxKeytime;
+	float Keytime;
+
+	bool avaible;
+
+	std::vector<const char*> buttonActionList;
+	sf::Color colorHover;
 };
 

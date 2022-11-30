@@ -3,6 +3,11 @@
 InterfaceTemplate::InterfaceTemplate(sf::RenderWindow* window) : Button(window)
 {
 	this->window = window;
+	this->pos = 0;
+	this->length = 0;
+	this->posMin = 0;
+	this->one = false;
+	this->MaxKeytime = 1.f;
 	InitFont();
 	InitBackground();
 }
@@ -26,20 +31,18 @@ void InterfaceTemplate::createButton(sf::Text content, sf::Color color, sf::Colo
 	int bgTexture, sf::Vector2f sizeBox, int rectLeft, int rectTop, int rectWidth, int rectHeight, bool alignCenter)
 {
 	componentButtonList[buttonName] = new Button(this->window);
-	addText(content, color, font, text, x+xIncrement, y+yIncrement, sizeText, alignCenter);
+	addButtonText(content, color, font, text, x+xIncrement, y+yIncrement, sizeText, alignCenter, buttonName);
 	componentButtonList[buttonName]->setBox(&componentTextList.back(), buttonSPrite, colorHovere, bgTexture, x, y, sizeBox,
 	rectLeft, rectTop, rectWidth, rectHeight, buttonName, alignCenter);
+	this->colorHover = colorHovere;
 }
 
 const char* InterfaceTemplate::getActionButton()
 {
-	if (!componentButtonList.empty())
+	if (!componentButtonTextList.empty())
 	{
-		for (auto& i : componentButtonList)
-		{
-			if (i.second->isPressed())
-				return i.second->getAction();
-		}
+		if(this->keyboard.isKeyPressed(this->keyboard.Enter))
+		return buttonActionList[this->pos];
 	}
 	return nullptr;
 }
@@ -62,21 +65,21 @@ void InterfaceTemplate::addText(sf::Text content, sf::Color color, int font, con
 	else componentTextList.back().setPosition(x,y);
 }
 
-void InterfaceTemplate::addDropDownText(sf::Text content, sf::Color color, 
-	int font, const char* text, float x, float y, int size, bool alignCenter)
+void InterfaceTemplate::addButtonText(sf::Text content, sf::Color color, int font, const char* text,
+	float x, float y, int size, bool alignCenter, const char* action)
 {
-	componentDropDownTextList.push_back(content);
-	componentDropDownTextList.back().setFont(fontList[font]);
-	componentDropDownTextList.back().setFillColor(color);
-	componentDropDownTextList.back().setString(text);
-	componentDropDownTextList.back().setCharacterSize(size);
-
+	componentButtonTextList.push_back(content);
+	componentButtonTextList.back().setFont(fontList[font]);
+	componentButtonTextList.back().setFillColor(color);
+	componentButtonTextList.back().setString(text);
+	componentButtonTextList.back().setCharacterSize(size);
+	buttonActionList.push_back(action);
 	if (alignCenter)
 	{
-		int calcCenter = (this->window->getSize().x - componentDropDownTextList.back().getGlobalBounds().width) / 2;
-		componentDropDownTextList.back().setPosition(calcCenter, y);
+		int calcCenter = (this->window->getSize().x - componentButtonTextList.back().getGlobalBounds().width) / 2;
+		componentButtonTextList.back().setPosition(calcCenter, y);
 	}
-	else componentTextList.back().setPosition(x, y);
+	else componentButtonTextList.back().setPosition(x, y);
 }
 
 int InterfaceTemplate::InitBackground()
@@ -97,9 +100,68 @@ void InterfaceTemplate::createBackground(int backgroungTexture)
 	this->background.setScale(xScale, yScale);
 }
 
+void InterfaceTemplate::updateKeytime()
+{
+	if (this->Keytime < this->MaxKeytime)
+		this->Keytime += 0.08f;
+}
+
+bool InterfaceTemplate::getKeytime()
+{
+	if (this->Keytime >= this->MaxKeytime)
+	{
+		this->Keytime = 0.f;
+		return true;
+	}
+	return false;
+}
+
+void InterfaceTemplate::initSelect()
+{
+	this->length = componentButtonTextList.size();
+	this->posMin = 0;
+	this->pos = 0;
+	componentButtonTextList[pos].setOutlineColor(this->colorHover);
+	componentButtonTextList[pos].setOutlineThickness(5);
+	std::cout << "lenght : " << length << std::endl;
+	std::cout << "posMin : " << posMin << std::endl;
+	std::cout << "pos : " << this->pos << std::endl;
+	this->one = true;
+}
+
+void InterfaceTemplate::selectedButton()
+{
+	if (this->one == false && !componentButtonList.empty()) this->initSelect();
+
+	if(this->keyboard.isKeyPressed(this->keyboard.S) && !componentButtonList.empty()) 
+	{
+		this->avaible = this->getKeytime();
+		if (this->pos < length-1 && avaible)
+		{
+			++this->pos;
+			componentButtonTextList[this->pos].setOutlineColor(this->colorHover);
+			componentButtonTextList[this->pos].setOutlineThickness(5);
+			componentButtonTextList[this->pos -1].setOutlineThickness(0);
+		}
+	}
+
+	if (this->keyboard.isKeyPressed(this->keyboard.Z) && !componentButtonList.empty())
+	{
+		this->avaible = this->getKeytime();
+		if (this->pos > posMin && avaible)
+		{
+			--this->pos;
+			componentButtonTextList[this->pos].setOutlineThickness(5);
+			componentButtonTextList[this->pos + 1].setOutlineThickness(0);
+		}
+	}
+}
+
 
 void InterfaceTemplate::draw()
 {
+	updateKeytime();
+	selectedButton();
 	if (this->background.getTexture()) {
 		this->window->draw(this->background);
 	}
@@ -113,6 +175,10 @@ void InterfaceTemplate::draw()
 	if (!componentTextList.empty()) {
 		for (unsigned int i = 0; i < componentTextList.size(); i++)
 			this->window->draw(componentTextList[i]);
+	}
+	if (!componentButtonTextList.empty()) {
+		for (unsigned int i = 0; i < componentButtonTextList.size(); i++)
+			this->window->draw(componentButtonTextList[i]);
 	}
 }
 

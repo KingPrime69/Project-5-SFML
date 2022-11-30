@@ -1,11 +1,12 @@
 #pragma once
 
 #include <iostream>
+#include <array>
 #include <SFML/Graphics.hpp>
 
 #include "InterfaceTemplate.h"
 
-#define MAX_NUMBER_OF_TEXT 5
+#define MAX_NUMBER_OF_TEXT 6
 #define MAX_NUMBER_OF_SPRITE 2
 class Menu : public InterfaceTemplate
 {
@@ -17,7 +18,7 @@ public:
 	void initComponent();
 
 private:
-	sf::Sprite componentSprite[MAX_NUMBER_OF_SPRITE];
-	sf::Text componentText[MAX_NUMBER_OF_TEXT];
+	sf::Sprite componentButton[MAX_NUMBER_OF_SPRITE];
+	std::array <sf::Text, MAX_NUMBER_OF_TEXT> componentText;
 };
 

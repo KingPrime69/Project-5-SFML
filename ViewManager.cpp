@@ -24,7 +24,6 @@ void ViewManager::updateKeytime()
 {
 	if (this->Keytime < this->MaxKeytime)
 		this->Keytime += 0.05f;
-	std::cout << Keytime << std::endl;
 }
 
 bool ViewManager::getKeytime()

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <map>
+#include <vector>
 #include <SFML/Graphics.hpp>
 
 #define WINDOW_BAR 31
