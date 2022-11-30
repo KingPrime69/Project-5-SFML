@@ -4,12 +4,12 @@
 #include <array>
 #include <SFML/Graphics.hpp>
 
-#include "ViewTemplate.h"
+#include "ViewCreator.h"
 
 
 #define MAX_NUMBER_OF_TEXT 4
 #define MAX_NUMBER_OF_SPRITE 4
-class InGame : public ViewTemplate
+class InGame : public ViewCreator
 {
 public:
 	InGame(sf::RenderWindow* window, bool menu);

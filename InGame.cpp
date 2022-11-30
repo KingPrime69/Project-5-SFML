@@ -2,7 +2,7 @@
 
 
 
-InGame::InGame(sf::RenderWindow* window, bool menu) : ViewTemplate(window)
+InGame::InGame(sf::RenderWindow* window, bool menu) : ViewCreator(window)
 {
 	this->window = window;
 	this->showMenu = menu;

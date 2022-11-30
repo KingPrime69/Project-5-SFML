@@ -36,17 +36,11 @@ bool ViewManager::getKeytime()
 	return false;
 }
 
-void ViewManager::swapView()
+void ViewManager::SwapViewKeyboard()
 {
-	if (this->view.top()->getActionButton() != nullptr) 
-	{
-		const char* action = this->view.top()->getActionButton();
-
-		this->currentView = action;
-
-		//### put view with here name action here ###//
-		if (action == "Start")this->view.push(new InGame(this->window, this->showMenuInGame));
-	}
+	//############################//
+	//#### ECHAP MENU IN GAME ####//
+	//############################//
 	if (this->currentView == "Start" && this->keyboard.isKeyPressed(this->keyboard.Escape) && this->showMenuInGame == false)
 	{
 		this->avaible = getKeytime();
@@ -56,7 +50,7 @@ void ViewManager::swapView()
 			this->view.push(new InGame(this->window, this->showMenuInGame));
 		}
 	}
-	if (this->currentView == "Start" && this->keyboard.isKeyPressed(this->keyboard.Escape) && this->showMenuInGame == true)
+	else if (this->currentView == "Start" && this->keyboard.isKeyPressed(this->keyboard.Escape) && this->showMenuInGame == true)
 	{
 		this->avaible = getKeytime();
 		if (this->avaible)
@@ -66,6 +60,34 @@ void ViewManager::swapView()
 			this->showMenuInGame = false;
 			this->view.push(new InGame(this->window, this->showMenuInGame));
 		}
+	}
+	//#############################//
+	//#### ~ECHAP MENU IN GAME ####//
+	//#############################//
+
+	//#############################//
+	//######## COMBAT VIEW ########//
+	//#############################//
+	if (this->currentView == "Start" && this->keyboard.isKeyPressed(this->keyboard.C))
+	{
+		this->avaible = getKeytime();
+		if (this->avaible)
+		{
+			this->view.push(new InGame(this->window, false));
+		}
+	}
+}
+
+void ViewManager::swapViewButton()
+{
+	if (this->view.top()->getActionButton() != nullptr) 
+	{
+		const char* action = this->view.top()->getActionButton();
+
+		this->currentView = action;
+
+		//### put view with here name action here ###//
+		if (action == "Start")this->view.push(new InGame(this->window, this->showMenuInGame));
 	}
 	//this->view.push(new Test(this->window));
 	//this->view.top().

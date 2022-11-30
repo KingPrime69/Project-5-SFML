@@ -4,13 +4,13 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
-#include "Button.h"
+#include "SpriteCreator.h"
 
-class ViewTemplate : public Button
+class ViewCreator : public SpriteCreator
 {
 public:
-	ViewTemplate(sf::RenderWindow* window);
-	~ViewTemplate();
+	ViewCreator(sf::RenderWindow* window);
+	~ViewCreator();
 
 	int InitFont();
 	void createButton(sf::Text content, sf::Color color, 
@@ -20,11 +20,9 @@ public:
 		sf::Vector2f sizeBox,int rectLeft, int rectTop, int rectWidth,
 		int rectHeight, bool alignCenter);
 
-	const char* getActionButton();
-
-
 	void addText(sf::Text content, sf::Color color, int font, 
 		const char* text, float x, float y, int size, bool alignCenter);
+
 	void addButtonText(sf::Text content, sf::Color color, int font,
 		const char* text, float x, float y, int size, bool alignCenter,
 		const char* action);
@@ -38,6 +36,7 @@ public:
 
 	void initSelect();
 	void selectedButton();
+	const char* getActionButton();
 
 	void draw();
 

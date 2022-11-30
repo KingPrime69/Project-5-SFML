@@ -54,16 +54,19 @@
     <ClCompile Include="SpriteAnim.cpp">
       <Filter>Source Files\Sprite</Filter>
     </ClCompile>
-    <ClCompile Include="InterfaceTemplate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
+    <ClCompile Include="SpriteCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InGame.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
     <ClCompile Include="DropDown.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CombatView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -103,6 +106,9 @@
     <Image Include="sprite\Red-Button.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="sprite\Fleches.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -132,16 +138,19 @@
     <ClInclude Include="Source.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InterfaceTemplate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
+    <ClInclude Include="SpriteCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InGame.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="DropDown.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CombatView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

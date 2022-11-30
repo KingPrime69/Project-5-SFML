@@ -1,6 +1,6 @@
-#include "ViewTemplate.h"
+#include "ViewCreator.h"
 
-ViewTemplate::ViewTemplate(sf::RenderWindow* window) : Button(window)
+ViewCreator::ViewCreator(sf::RenderWindow* window) : SpriteCreator(window)
 {
 	this->window = window;
 	this->pos = 0;
@@ -12,11 +12,11 @@ ViewTemplate::ViewTemplate(sf::RenderWindow* window) : Button(window)
 	InitBackground();
 }
 
-ViewTemplate::~ViewTemplate()
+ViewCreator::~ViewCreator()
 {
 }
 
-int ViewTemplate::InitFont()
+int ViewCreator::InitFont()
 {
 	if (!pokemonSolid.loadFromFile("pokemonSolid.ttf"))return EXIT_FAILURE;
 	fontList[0] = pokemonSolid;
@@ -26,29 +26,18 @@ int ViewTemplate::InitFont()
 	return 0;
 }
 
-void ViewTemplate::createButton(sf::Text content, sf::Color color, sf::Color colorHovere, int font, const char* text,
+void ViewCreator::createButton(sf::Text content, sf::Color color, sf::Color colorHovere, int font, const char* text,
 	float x, float y, float xIncrement, float yIncrement, int sizeText, sf::Sprite buttonSPrite, const char* buttonName, 
 	int bgTexture, sf::Vector2f sizeBox, int rectLeft, int rectTop, int rectWidth, int rectHeight, bool alignCenter)
 {
-	componentButtonList[buttonName] = new Button(this->window);
+	componentButtonList[buttonName] = new SpriteCreator(this->window);
 	addButtonText(content, color, font, text, x+xIncrement, y+yIncrement, sizeText, alignCenter, buttonName);
-	componentButtonList[buttonName]->setBox(&componentTextList.back(), buttonSPrite, colorHovere, bgTexture, x, y, sizeBox,
-	rectLeft, rectTop, rectWidth, rectHeight, buttonName, alignCenter);
+	componentButtonList[buttonName]->addSprite(buttonSPrite, colorHovere, bgTexture, x, y, sizeBox,
+	rectLeft, rectTop, rectWidth, rectHeight, alignCenter);
 	this->colorHover = colorHovere;
 }
 
-const char* ViewTemplate::getActionButton()
-{
-	if (!componentButtonTextList.empty())
-	{
-		if(this->keyboard.isKeyPressed(this->keyboard.Enter))
-		return buttonActionList[this->pos];
-	}
-	return nullptr;
-}
-
-
-void ViewTemplate::addText(sf::Text content, sf::Color color, int font, const char* text,
+void ViewCreator::addText(sf::Text content, sf::Color color, int font, const char* text,
 	float x, float y, int size, bool alignCenter)
 {
 	componentTextList.push_back(content);
@@ -65,7 +54,7 @@ void ViewTemplate::addText(sf::Text content, sf::Color color, int font, const ch
 	else componentTextList.back().setPosition(x,y);
 }
 
-void ViewTemplate::addButtonText(sf::Text content, sf::Color color, int font, const char* text,
+void ViewCreator::addButtonText(sf::Text content, sf::Color color, int font, const char* text,
 	float x, float y, int size, bool alignCenter, const char* action)
 {
 	componentButtonTextList.push_back(content);
@@ -82,13 +71,13 @@ void ViewTemplate::addButtonText(sf::Text content, sf::Color color, int font, co
 	else componentButtonTextList.back().setPosition(x, y);
 }
 
-int ViewTemplate::InitBackground()
+int ViewCreator::InitBackground()
 {
 	if (!bgTextureList[0].loadFromFile("sprite/StartBg.jpg"))return EXIT_FAILURE;
 	return 0;
 }
 
-void ViewTemplate::createBackground(int backgroungTexture)
+void ViewCreator::createBackground(int backgroungTexture)
 {
 	this->background.setTexture(bgTextureList[backgroungTexture]);
 	float xBG = this->background.getTexture()->getSize().x;
@@ -100,13 +89,13 @@ void ViewTemplate::createBackground(int backgroungTexture)
 	this->background.setScale(xScale, yScale);
 }
 
-void ViewTemplate::updateKeytime()
+void ViewCreator::updateKeytime()
 {
 	if (this->Keytime < this->MaxKeytime)
 		this->Keytime += 0.08f;
 }
 
-bool ViewTemplate::getKeytime()
+bool ViewCreator::getKeytime()
 {
 	if (this->Keytime >= this->MaxKeytime)
 	{
@@ -116,7 +105,7 @@ bool ViewTemplate::getKeytime()
 	return false;
 }
 
-void ViewTemplate::initSelect()
+void ViewCreator::initSelect()
 {
 	this->length = componentButtonTextList.size();
 	this->posMin = 0;
@@ -129,7 +118,7 @@ void ViewTemplate::initSelect()
 	this->one = true;
 }
 
-void ViewTemplate::selectedButton()
+void ViewCreator::selectedButton()
 {
 	if (this->one == false && !componentButtonList.empty()) this->initSelect();
 
@@ -152,14 +141,25 @@ void ViewTemplate::selectedButton()
 		if (this->pos > posMin && avaible)
 		{
 			--this->pos;
+			int posP = this->pos + 1;
 			componentButtonTextList[this->pos].setOutlineThickness(5);
-			componentButtonTextList[this->pos + 1].setOutlineThickness(0);
+			componentButtonTextList[posP].setOutlineThickness(0);
 		}
 	}
 }
 
+const char* ViewCreator::getActionButton()
+{
+	if (!componentButtonTextList.empty())
+	{
+		if (this->keyboard.isKeyPressed(this->keyboard.Enter))
+			return buttonActionList[this->pos];
+	}
+	return nullptr;
+}
 
-void ViewTemplate::draw()
+
+void ViewCreator::draw()
 {
 	updateKeytime();
 	selectedButton();
@@ -170,7 +170,7 @@ void ViewTemplate::draw()
 	{
 		for (auto& i : componentButtonList)
 		{
-			i.second->update();
+			i.second->draw();
 		}
 	}
 	if (!componentTextList.empty()) {

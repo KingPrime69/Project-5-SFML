@@ -84,8 +84,8 @@ int Game::run()
         // Draw the string
 
         this->viewManager->drawCurrentView();
-        this->viewManager->swapView();
-
+        this->viewManager->swapViewButton();
+        this->viewManager->SwapViewKeyboard();
         //this->window.drawSprite(salameche);
 
         //for (unsigned int i = 0; i < menu.componentTextList.size(); i++)this->window.drawText(menu.componentTextList[i]);

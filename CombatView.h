@@ -4,8 +4,8 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
-#include "ViewTemplate.h"
-class CombatView : public ViewTemplate
+#include "ViewCreator.h"
+class CombatView : public ViewCreator
 {
 public:
 	CombatView(sf::RenderWindow* window);

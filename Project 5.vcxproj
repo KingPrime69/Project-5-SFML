@@ -19,12 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="SpriteCreator.cpp" />
     <ClCompile Include="Combat.cpp" />
     <ClCompile Include="CombatView.cpp" />
     <ClCompile Include="DropDown.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="ViewTemplate.cpp" />
+    <ClCompile Include="ViewCreator.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Move.cpp" />
     <ClCompile Include="Pokemon.cpp" />
@@ -51,12 +51,12 @@
     <Image Include="sprite\StartBg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Button.h" />
+    <ClInclude Include="SpriteCreator.h" />
     <ClInclude Include="Combat.h" />
     <ClInclude Include="CombatView.h" />
     <ClInclude Include="DropDown.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="ViewTemplate.h" />
+    <ClInclude Include="ViewCreator.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Move.h" />
     <ClInclude Include="Pokemon.h" />

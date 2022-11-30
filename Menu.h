@@ -4,11 +4,11 @@
 #include <array>
 #include <SFML/Graphics.hpp>
 
-#include "ViewTemplate.h"
+#include "ViewCreator.h"
 
 #define MAX_NUMBER_OF_TEXT 6
 #define MAX_NUMBER_OF_SPRITE 2
-class Menu : public ViewTemplate
+class Menu : public ViewCreator
 {
 public:
 	Menu(sf::RenderWindow* window);

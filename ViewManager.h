@@ -17,14 +17,16 @@ public:
 	void updateKeytime();
 	bool getKeytime();
 
-	void swapView();
+	void SwapViewKeyboard();
+
+	void swapViewButton();
 	void drawCurrentView();
 
 
 
 private:
 	//Menu* menu;
-	std::stack<ViewTemplate*> view;
+	std::stack<ViewCreator*> view;
 	sf::RenderWindow *window;
 	sf::Keyboard keyboard;
 	std::string currentView;
