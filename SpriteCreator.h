@@ -2,11 +2,11 @@
 
 #include <iostream>
 #include <map>
-#include <vector>
+#include <array>
 #include <SFML/Graphics.hpp>
 
 #define WINDOW_BAR 31
-
+#define MAX_SPRITE 4
 class SpriteCreator
 {
 public:
@@ -15,17 +15,18 @@ public:
 
 	int initTexture();
 
-	void addSprite(sf::Sprite buttonSPrite, sf::Color colorHover, int bgTexture,
+	void addSprite(sf::Sprite buttonSPrite, int bgTexture,
 		float x, float y, sf::Vector2f size, int rectLeft, int rectTop, int rectWidth,
 		int rectHeight, bool alignCenter);
 
 	void draw();
 protected:
 	sf::RenderWindow* window;
-	std::map<std::string, SpriteCreator*> componentButtonList;
+	std::map<std::string, SpriteCreator*> componentSpriteList;
+
 private:
 	sf::Sprite Sprite;
-	sf::Texture textureList[2];
+	std::array <sf::Texture, MAX_SPRITE> textureList;
 
 };
 

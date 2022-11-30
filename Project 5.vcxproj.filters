@@ -63,7 +63,7 @@
     <ClCompile Include="DropDown.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CombatView.cpp">
+    <ClCompile Include="CombatTemplate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ViewCreator.cpp">
@@ -78,6 +78,9 @@
       <Filter>Resource Files</Filter>
     </Font>
     <Font Include="ortemmn.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="pokemonPixel.ttf">
       <Filter>Resource Files</Filter>
     </Font>
   </ItemGroup>
@@ -107,6 +110,15 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="sprite\Fleches.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="sprite\combat.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="sprite\Sprite-SheetPokemon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="sprite\ContainerCombat.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
@@ -147,7 +159,7 @@
     <ClInclude Include="DropDown.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CombatView.h">
+    <ClInclude Include="CombatTemplate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ViewCreator.h">

@@ -23,21 +23,22 @@ int ViewCreator::InitFont()
 	if (!pokemonHollow.loadFromFile("pokemonHollow.ttf"))return EXIT_FAILURE;
 	fontList[1] = pokemonHollow;
 	if (!fontList[2].loadFromFile("ortemmn.ttf"))return EXIT_FAILURE;
+	if (!fontList[3].loadFromFile("pokemonPixel.ttf"))return EXIT_FAILURE;
 	return 0;
 }
 
-void ViewCreator::createButton(sf::Text content, sf::Color color, sf::Color colorHovere, int font, const char* text,
-	float x, float y, float xIncrement, float yIncrement, int sizeText, sf::Sprite buttonSPrite, const char* buttonName, 
+void ViewCreator::createButton(sf::Text content, sf::Color color, sf::Color colorHovere, int font, std::string text,
+	float x, float y, float xIncrement, float yIncrement, int sizeText, sf::Sprite buttonSPrite, std::string buttonName,
 	int bgTexture, sf::Vector2f sizeBox, int rectLeft, int rectTop, int rectWidth, int rectHeight, bool alignCenter)
 {
-	componentButtonList[buttonName] = new SpriteCreator(this->window);
+	componentSpriteList[buttonName] = new SpriteCreator(this->window);
 	addButtonText(content, color, font, text, x+xIncrement, y+yIncrement, sizeText, alignCenter, buttonName);
-	componentButtonList[buttonName]->addSprite(buttonSPrite, colorHovere, bgTexture, x, y, sizeBox,
+	componentSpriteList[buttonName]->addSprite(buttonSPrite, bgTexture, x, y, sizeBox,
 	rectLeft, rectTop, rectWidth, rectHeight, alignCenter);
 	this->colorHover = colorHovere;
 }
 
-void ViewCreator::addText(sf::Text content, sf::Color color, int font, const char* text,
+void ViewCreator::addText(sf::Text content, sf::Color color, int font, std::string text,
 	float x, float y, int size, bool alignCenter)
 {
 	componentTextList.push_back(content);
@@ -54,8 +55,8 @@ void ViewCreator::addText(sf::Text content, sf::Color color, int font, const cha
 	else componentTextList.back().setPosition(x,y);
 }
 
-void ViewCreator::addButtonText(sf::Text content, sf::Color color, int font, const char* text,
-	float x, float y, int size, bool alignCenter, const char* action)
+void ViewCreator::addButtonText(sf::Text content, sf::Color color, int font, std::string text,
+	float x, float y, int size, bool alignCenter, std::string action)
 {
 	componentButtonTextList.push_back(content);
 	componentButtonTextList.back().setFont(fontList[font]);
@@ -71,9 +72,19 @@ void ViewCreator::addButtonText(sf::Text content, sf::Color color, int font, con
 	else componentButtonTextList.back().setPosition(x, y);
 }
 
+void ViewCreator::addSprite(sf::Sprite buttonSPrite, int bgTexture,
+	float x, float y, sf::Vector2f size, int rectLeft, int rectTop,
+	int rectWidth, int rectHeight, bool alignCenter, const char* name)
+{
+	componentSpriteList[name] = new SpriteCreator(this->window);
+	componentSpriteList[name]->addSprite(buttonSPrite, bgTexture, x, y, size,
+	rectLeft, rectTop, rectWidth, rectHeight, alignCenter);
+}
+
 int ViewCreator::InitBackground()
 {
 	if (!bgTextureList[0].loadFromFile("sprite/StartBg.jpg"))return EXIT_FAILURE;
+	if (!bgTextureList[1].loadFromFile("sprite/combat.jpg"))return EXIT_FAILURE;
 	return 0;
 }
 
@@ -120,9 +131,9 @@ void ViewCreator::initSelect()
 
 void ViewCreator::selectedButton()
 {
-	if (this->one == false && !componentButtonList.empty()) this->initSelect();
+	if (this->one == false && !componentSpriteList.empty() && !componentButtonTextList.empty()) this->initSelect();
 
-	if(this->keyboard.isKeyPressed(this->keyboard.S) && !componentButtonList.empty()) 
+	if(this->keyboard.isKeyPressed(this->keyboard.S) && !componentSpriteList.empty() && !componentButtonTextList.empty())
 	{
 		this->avaible = this->getKeytime();
 		if (this->pos < length-1 && avaible)
@@ -135,7 +146,7 @@ void ViewCreator::selectedButton()
 		}
 	}
 
-	if (this->keyboard.isKeyPressed(this->keyboard.Z) && !componentButtonList.empty())
+	if (this->keyboard.isKeyPressed(this->keyboard.Z) && !componentSpriteList.empty() && !componentButtonTextList.empty())
 	{
 		this->avaible = this->getKeytime();
 		if (this->pos > posMin && avaible)
@@ -148,14 +159,14 @@ void ViewCreator::selectedButton()
 	}
 }
 
-const char* ViewCreator::getActionButton()
+std::string ViewCreator::getActionButton()
 {
 	if (!componentButtonTextList.empty())
 	{
 		if (this->keyboard.isKeyPressed(this->keyboard.Enter))
 			return buttonActionList[this->pos];
 	}
-	return nullptr;
+	return "";
 }
 
 
@@ -166,9 +177,9 @@ void ViewCreator::draw()
 	if (this->background.getTexture()) {
 		this->window->draw(this->background);
 	}
-	if (!componentButtonList.empty())
+	if (!componentSpriteList.empty())
 	{
-		for (auto& i : componentButtonList)
+		for (auto& i : componentSpriteList)
 		{
 			i.second->draw();
 		}

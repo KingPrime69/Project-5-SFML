@@ -14,18 +14,22 @@ public:
 
 	int InitFont();
 	void createButton(sf::Text content, sf::Color color, 
-		sf::Color colorHovere, int font, const char* text, float x, 
+		sf::Color colorHovere, int font, std::string text, float x,
 		float y, float xIncrement, float yIncrement, int sizeText, 
-		sf::Sprite buttonSPrite, const char* buttonName, int bgTexture,
+		sf::Sprite buttonSPrite, std::string buttonName, int bgTexture,
 		sf::Vector2f sizeBox,int rectLeft, int rectTop, int rectWidth,
 		int rectHeight, bool alignCenter);
 
 	void addText(sf::Text content, sf::Color color, int font, 
-		const char* text, float x, float y, int size, bool alignCenter);
+		std::string text, float x, float y, int size, bool alignCenter);
 
 	void addButtonText(sf::Text content, sf::Color color, int font,
-		const char* text, float x, float y, int size, bool alignCenter,
-		const char* action);
+		std::string text, float x, float y, int size, bool alignCenter,
+		std::string action);
+
+	void addSprite(sf::Sprite buttonSPrite, int bgTexture, float x,
+		float y, sf::Vector2f size, int rectLeft, int rectTop, int rectWidth, 
+		int rectHeight, bool alignCenter, const char* name);
 
 
 	int InitBackground();
@@ -36,7 +40,7 @@ public:
 
 	void initSelect();
 	void selectedButton();
-	const char* getActionButton();
+	std::string getActionButton();
 
 	void draw();
 
@@ -46,7 +50,7 @@ protected:
 	std::vector<sf::Text> componentTextList;
 	std::vector<sf::Text> componentButtonTextList;
 private:
-	sf::Texture bgTextureList[1];
+	sf::Texture bgTextureList[2];
 	sf::Sprite background;
 	sf::Font fontList[3];
 	sf::Font pokemonSolid;
@@ -63,7 +67,7 @@ private:
 
 	bool avaible;
 
-	std::vector<const char*> buttonActionList;
+	std::vector<std::string> buttonActionList;
 	sf::Color colorHover;
 };
 

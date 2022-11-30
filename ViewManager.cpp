@@ -3,7 +3,7 @@
 ViewManager::ViewManager(sf::RenderWindow *window)
 {
 	this->window = window;
-	this->view.push(new Menu(this->window));
+	this->view.push(new CombatTemplate(this->window));
 	this->showMenuInGame = false;
 	this->MaxKeytime = 1.f;
 	this->Keytime = 0.f;
@@ -73,16 +73,16 @@ void ViewManager::SwapViewKeyboard()
 		this->avaible = getKeytime();
 		if (this->avaible)
 		{
-			this->view.push(new InGame(this->window, false));
+			this->view.push(new CombatTemplate(this->window));
 		}
 	}
 }
 
 void ViewManager::swapViewButton()
 {
-	if (this->view.top()->getActionButton() != nullptr) 
+	if (this->view.top()->getActionButton() != "") 
 	{
-		const char* action = this->view.top()->getActionButton();
+		std::string action = this->view.top()->getActionButton();
 
 		this->currentView = action;
 

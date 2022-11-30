@@ -21,7 +21,7 @@
   <ItemGroup>
     <ClCompile Include="SpriteCreator.cpp" />
     <ClCompile Include="Combat.cpp" />
-    <ClCompile Include="CombatView.cpp" />
+    <ClCompile Include="CombatTemplate.cpp" />
     <ClCompile Include="DropDown.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="ViewCreator.cpp" />
@@ -36,16 +36,20 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="ortemmn.ttf" />
+    <Font Include="pokemonPixel.ttf" />
     <Font Include="pokemonSolid.ttf" />
     <Font Include="pokemonHollow.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="sprite\AManim.png" />
     <Image Include="sprite\buttonKiwi.png" />
+    <Image Include="sprite\combat.jpg" />
+    <Image Include="sprite\ContainerCombat.png" />
     <Image Include="sprite\Fleches.png" />
     <Image Include="sprite\player (1).png" />
     <Image Include="sprite\player.png" />
     <Image Include="sprite\Red-Button.png" />
+    <Image Include="sprite\Sprite-SheetPokemon.png" />
     <Image Include="sprite\Sprite-Starter.png" />
     <Image Include="sprite\spriteSheet.png" />
     <Image Include="sprite\StartBg.jpg" />
@@ -53,7 +57,7 @@
   <ItemGroup>
     <ClInclude Include="SpriteCreator.h" />
     <ClInclude Include="Combat.h" />
-    <ClInclude Include="CombatView.h" />
+    <ClInclude Include="CombatTemplate.h" />
     <ClInclude Include="DropDown.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="ViewCreator.h" />
