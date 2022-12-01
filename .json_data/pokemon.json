@@ -1,11 +1,11 @@
 {
-  "Sprigatito" : {
-    "Name" : "Sprigatito",
+  "Sprigatito": {
+    "Name": "Sprigatito",
     "FirstType": "Grass",
     "SecondType": "",
 
-    "ExpCurve" : "Medium Slow",
-    "ExpYield" : 62,
+    "ExpCurve": "Medium Slow",
+    "ExpYield": 62,
 
     "HP": 40,
     "Atk": 61,
@@ -14,34 +14,212 @@
     "SpeDef": 45,
     "Speed": 65,
 
-    "LevelingPath" : {
-      "7" : {
-        "AvailableAttack" : "Bite"
+    "LevelingPath": {
+      "7": {
+        "AvailableAttack": "Bite"
       },
-      "10" : {
-        "AvailableAttack" : "Hone Claws"
+      "10": {
+        "AvailableAttack": "Hone Claws"
       },
-      "13" : {
-        "AvailableAttack" : "Magical Leaf"
+      "13": {
+        "AvailableAttack": "Magical Leaf"
       },
-      "15" : {
-        "AvailableAttack" : "Quick Attack"
+      "15": {
+        "AvailableAttack": "Quick Attack"
       },
-      "16" : {
-        "NextEvolution" : "Floragato"
+      "16": {
+        "NextEvolution": "Floragato"
       },
-      "17" : {
-        "AvailableAttack" : "Seed Bomb"
+      "17": {
+        "AvailableAttack": "Seed Bomb"
       }
     }
   },
-  "Lechonk" : {
-    "Name" : "Lechonk",
+  "Floragato": {
+    "Name": "Floragato",
+    "FirstType": "Grass",
+    "SecondType": "",
+
+    "ExpCurve": "Medium Slow",
+    "ExpYield": 144,
+
+    "HP": 61,
+    "Atk": 80,
+    "Def": 63,
+    "SpeAtk": 60,
+    "SpeDef": 63,
+    "Speed": 83,
+
+    "LevelingPath": {
+      "7": {
+        "AvailableAttack": "Bite"
+      },
+      "10": {
+        "AvailableAttack": "Hone Claws"
+      },
+      "13": {
+        "AvailableAttack": "Magical Leaf"
+      },
+      "15": {
+        "AvailableAttack": "Quick Attack"
+      },
+      "20": {
+        "AvailableAttack": "Seed Bomb"
+      },
+      "28": {
+        "AvailableAttack": "Worry Seed"
+      },
+      "33": {
+        "AvailableAttack": "Slash"
+      },
+      "36": {
+        "NextEvolution": "Meowscarada"
+      },
+      "38": {
+        "AvailableAttack": "Energy Ball"
+      }
+    }
+  },
+  "Meowscarada": {
+    "Name": "Meowscarada",
+    "FirstType": "Grass",
+    "SecondType": "Dark",
+
+    "ExpCurve": "Medium Slow",
+    "ExpYield": 265,
+
+    "HP": 76,
+    "Atk": 110,
+    "Def": 70,
+    "SpeAtk": 81,
+    "SpeDef": 70,
+    "Speed": 123,
+
+    "LevelingPath": {
+      "7": {
+        "AvailableAttack": "Bite"
+      },
+      "10": {
+        "AvailableAttack": "Hone Claws"
+      },
+      "13": {
+        "AvailableAttack": "Magical Leaf"
+      },
+      "15": {
+        "AvailableAttack": "Quick Attack"
+      },
+      "20": {
+        "AvailableAttack": "Seed Bomb"
+      },
+      "33": {
+        "AvailableAttack": "Slash"
+      },
+      "38": { // Needs to be double check
+        "AvailableAttack": "Night Slash"
+      },
+      "42": {
+        "AvailableAttack": "Energy Ball"
+      },
+      "47": {
+        "AvailableAttack": "Play Rough"
+      },
+      "52": {
+        "AvailableAttack": "Knock Off"
+      },
+      "64": {
+        "AvailableAttack": "Leaf Storm"
+      }
+    }
+  },
+
+  "Fuecoco": {
+    "Name": "Fuecoco",
+    "FirstType": "Fire",
+    "SecondType": "",
+
+    "ExpCurve": "Medium Slow",
+    "ExpYield": 62,
+
+    "HP": 67,
+    "Atk": 45,
+    "Def": 59,
+    "SpeAtk": 63,
+    "SpeDef": 40,
+    "Speed": 36,
+
+    "LevelingPath": {
+      "7": {
+        "AvailableAttack": "Round"
+      },
+      "12": {
+        "AvailableAttack": "Bite"
+      },
+      "15": {
+        "AvailableAttack": "Incinerate"
+      },
+      "16": {
+        "NextEvolution": "Crocalor"
+      },
+      "17": {
+        "AvailableAttack": "Yawn"
+      }
+    }
+  },
+  "Crocalor": {
+    "Name": "Crocalor",
+    "FirstType": "Fire",
+    "SecondType": "",
+
+    "ExpCurve": "Medium Slow",
+    "ExpYield":144,
+
+    "HP":81,
+    "Atk":55,
+    "Def":78,
+    "SpeAtk":90,
+    "SpeDef":58,
+    "Speed":46,
+
+    "LevelingPath": {
+      "7": {
+        "AvailableAttack": "Lick"
+      },
+      "10": {
+        "AvailableAttack": "Round"
+      },
+      "12": {
+        "AvailableAttack": "Bite"
+      },
+      "15": {
+        "AvailableAttack": "Yawn"
+      },
+      "17": {
+        "AvailableAttack": "Incinerate"
+      },
+      "24": {
+        "AvailableAttack": "Snarl"
+      },
+      "28": {
+        "AvailableAttack": "Roar"
+      },
+      "32": {
+        "AvailableAttack": "Flamethrower"
+      },
+      "36": {
+        "NextEvolution": "Skeledirge"
+      },
+      "38": {
+        "AvailableAttack": "Hyper Voice"
+      }
+    }
+  },
+  "Lechonk": {
+    "Name": "Lechonk",
     "FirstType": "Normal",
     "SecondType": "",
 
-    "ExpCurve" : "Medium Fast",
-    "ExpYield" : 51,
+    "ExpCurve": "Medium Fast",
+    "ExpYield": 51,
 
     "HP": 54,
     "Atk": 45,
@@ -50,13 +228,13 @@
     "SpeDef": 45,
     "Speed": 35
   },
-  "Riolu" : {
-    "Name" : "Riolu",
+  "Riolu": {
+    "Name": "Riolu",
     "FirstType": "Fighting",
     "SecondType": "",
 
-    "ExpCurve" : "Medium Slow",
-    "ExpYield" : 57,
+    "ExpCurve": "Medium Slow",
+    "ExpYield": 57,
 
     "HP": 40,
     "Atk": 70,

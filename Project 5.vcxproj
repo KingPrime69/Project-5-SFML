@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="EntityAnimation.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="SpriteCreator.cpp" />
     <ClCompile Include="Combat.cpp" />
     <ClCompile Include="CombatTemplate.cpp" />
@@ -56,6 +59,10 @@
     <Image Include="sprite\StartBg.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntityAnimation.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="SpriteCreator.h" />
     <ClInclude Include="Combat.h" />
     <ClInclude Include="CombatTemplate.h" />
@@ -76,7 +83,7 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{c1b799cb-9dad-47c4-956e-4b5e80851e5b}</ProjectGuid>
     <RootNamespace>Project5</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -95,7 +102,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -168,12 +175,12 @@
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Ytaki\Desktop\Programmation\librairies C++\SFML-2.5.1\include;C:\SFML-2.5.1\include;C:\Users\qripot\Downloads\SFML-2.5.1\include;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\include;C:\Users\atruchon\source\repos\AnimationTest\SFML\include;json-develop\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ytaki\Desktop\Programmation\librairies C++\SFML-2.5.1\include;C:\SFML-2.5.1\include;C:\Users\qripot\Downloads\SFML-2.5.1\include;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\include;C:\VSLib\SFML-2.5.1\include;json-develop\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Ytaki\Desktop\Programmation\librairies C++\SFML-2.5.1\lib;C:\SFML-2.5.1\lib;C:\Users\qripot\Downloads\SFML-2.5.1\lib;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\lib;C:\Users\atruchon\source\repos\AnimationTest\SFML\ib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Ytaki\Desktop\Programmation\librairies C++\SFML-2.5.1\lib;C:\SFML-2.5.1\lib;C:\Users\qripot\Downloads\SFML-2.5.1\lib;C:\Users\quent\Desktop\Lib VC\SFML-2.5.1\lib;C:\VSLib\SFML-2.5.1\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-system-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

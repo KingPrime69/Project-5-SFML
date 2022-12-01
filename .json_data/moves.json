@@ -92,5 +92,119 @@
                 "PP": 15,
                 "Contact": false,
                 "Weather": "none"
-        }
+        },
+        "Slash" : {
+                "Name": "Slash",
+                "Type": "Normal",
+                "Category": "Physical",
+                "Power": 70,
+                "Accuracy": 100,
+                "PP": 20,
+                "Contact": true,
+                "Weather":  "none"
+        },
+        "Energy Ball": {
+                "Name": "Energy Ball",
+                "Type": "Grass",
+                "Category": "Special",
+                "Power": 90,
+                "Accuracy": 100,
+                "PP": 10,
+                "Contact": false,
+                "Weather": "none"
+        },
+        "Worry Seed": {
+                "Name": "Worry Seed",
+                "Type": "Grass",
+                "Category": "Status",
+                "Power": 0,
+                "Accuracy": 100,
+                "PP": 10,
+                "Contact": false,
+                "Weather":  "none"
+        },
+        "Leaf Storm": {
+                "Name": "Leaf Storm",
+                "Type": "Grass",
+                "Category": "Special",
+                "Power": 130,
+                "Accuracy": 90,
+                "PP": 5,
+                "Contact": false,
+                "Weather":  "none"
+        },
+  "Leer": {
+    "Name": "Leer",
+    "Type": "Normal",
+    "Category": "Status",
+    "Power": 0,
+    "Accuracy": 100,
+    "PP": 30,
+    "Contact": false,
+    "Weather": "none"
+  },
+  "Ember": {
+    "Name": "Ember",
+    "Type": "Fire",
+    "Category": "Special",
+    "Power": 40,
+    "Accuracy": 100,
+    "PP": 25,
+    "Contact": false,
+    "Weather": "none"
+  },
+  "Round": {
+    "Name": "Round",
+    "Type": "Normal",
+    "Category": "Special",
+    "Power": 60,
+    "Accuracy": 100,
+    "PP": 15,
+    "Contact": false,
+    "Weather": "none"
+  },
+  "Incinerate": {
+    "Name": "Incinerate",
+    "Type": "Fire",
+    "Category": "Special",
+    "Power": 60,
+    "Accuracy": 100,
+    "PP": 15,
+    "Contact": false,
+    "Weather": "none"
+  },
+  "Yawn": {
+    "Name": "Yawn",
+    "Type": "Normal",
+    "Category": "Status",
+    "Power": 0,
+    "Accuracy": 9999,
+    "PP": 10,
+    "Contact": false,
+    "Weather": "none"
+  },
+  "Snarl": {
+    "Name": "Snarl",
+    "Type": "Dark",
+    "Category": "Special",
+    "Power": 55,
+    "Accuracy": 95,
+    "PP": 15,
+    "Contact": false,
+    "Weather": "none"
+  },
+  "Roar": {
+    "Name": "Roar",
+    "Type": "Normal",
+    "Category": "Status",
+    "Power": 0,
+    "Accuracy": 9999,
+    "PP": 20,
+    "Contact": false,
+    "Weather": "none"
+  },
+  //"Flamethrower": {
+  //  "Name": "Flamethrower"
+  //}
+
 }
