@@ -75,6 +75,15 @@ int Game::run()
     //salameche.scale(5, 5);
     //salameche.setPosition(300, 300);
 
+
+    // Player creation & movement test
+    sf::Texture playerTexture;
+    if (!playerTexture.loadFromFile(PLAYER_TEXTURE_PATH))
+    {
+        // error...
+    }
+    Player player = Player(playerTexture);
+    player.setDirection(4); // Sets player's direction to the south
     
     while (this->window.isOpen())
     {
@@ -90,22 +99,15 @@ int Game::run()
         //    else frame++;
         //}
         // Draw the string
-        // Player creation & movement test
 
-        sf::Texture playerTexture;
-        if (!playerTexture.loadFromFile(PLAYER_TEXTURE_PATH))
+        // Checks is a key is pressed before moving the player
+        if (sf::Keyboard::isKeyPressed)
         {
-            // error...
+            player.movingEntity();
         }
-
-        //Player player = Player(playerTexture);
-        //player.setDirection(4);
-
         
-          //  player.movingEntity();
-        
-
-       // this->drawEntity(player);
+        // Redraws the player in the window
+        this->drawEntity(player);
 
 
         this->viewManager->drawCurrentView();

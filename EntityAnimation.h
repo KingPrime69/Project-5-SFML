@@ -8,8 +8,8 @@ protected:
     std::vector<sf::IntRect> _animation_pos;
 
     int _direction;
-    bool _isMoving = false;
-    bool _isRunning = false;
+    bool _isMoving;
+    bool _isRunning;
     int _countFrame;
 
 public:

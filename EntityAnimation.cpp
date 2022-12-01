@@ -23,6 +23,8 @@ void EntityAnimation::nextAnimation(void)
     this->_sprite.setTextureRect(_animation_pos[this->_count]);
 }
 
+
+//
 void EntityAnimation::setAnimation(std::vector<sf::IntRect> spriteAnimation)
 {
     this->_animation_pos = spriteAnimation;
@@ -70,7 +72,7 @@ void EntityAnimation::animationSpeed(int frameRate) {
         _countFrame = 0;
     }
     _countFrame++;
-    // std::cout << "countFrame : " << _countFrame << "\n";
+    std::cout << "countFrame : " << _countFrame << "\n";
 }
 
 void EntityAnimation::movingEntity() {
