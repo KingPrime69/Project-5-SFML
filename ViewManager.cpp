@@ -9,6 +9,7 @@ ViewManager::ViewManager(sf::RenderWindow *window)
 	this->Keytime = 0.f;
 	this->avaible = false;
 	//this->menu = new Menu(this->window);
+	this->currentView = "Start";
 }
 
 ViewManager::~ViewManager()
