@@ -60,9 +60,6 @@
     <ClCompile Include="InGame.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="DropDown.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CombatTemplate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -167,9 +164,6 @@
     </ClInclude>
     <ClInclude Include="InGame.h">
       <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="DropDown.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CombatTemplate.h">
       <Filter>Header Files</Filter>
