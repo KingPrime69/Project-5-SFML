@@ -7,10 +7,13 @@
 
 #include"Game.h"
 #include "SpriteAnim.h"
+#include "Player.h"
 #include "Pokemon.h"
 #include "Move.h"
 #include "Combat.h"
 #include "Source.h"
+
+#include "Config.h"
 
 using namespace std;
 
@@ -49,7 +52,12 @@ int main()
 
     //SpriteAnim anim;
 
+
+    
+
+
     Game game;
+
     game.run();
     // Create the main window
     //sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML window");

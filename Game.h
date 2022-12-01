@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "ViewManager.h"
+#include "Entity.h"
 
 
 class Game
@@ -25,6 +26,7 @@ public:
 	int run();
 
 
+	void drawEntity(const Entity&);
 
 private:
 	sf::RenderWindow window;
