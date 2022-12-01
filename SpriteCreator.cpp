@@ -20,6 +20,7 @@ int SpriteCreator::initTexture()
 	if (!textureList[1].loadFromFile("sprite/Fleches.png"))return EXIT_FAILURE;
 	if (!textureList[2].loadFromFile("sprite/Sprite-SheetPokemon.png"))return EXIT_FAILURE;
 	if (!textureList[3].loadFromFile("sprite/ContainerCombat.png"))return EXIT_FAILURE;
+	if (!textureList[4].loadFromFile("sprite/HP.png"))return EXIT_FAILURE;
 	return 0;
 }
 

@@ -6,7 +6,7 @@
 #include <SFML/Graphics.hpp>
 
 #define WINDOW_BAR 31
-#define MAX_SPRITE 4
+#define MAX_SPRITE 5
 class SpriteCreator
 {
 public:
@@ -23,7 +23,7 @@ public:
 protected:
 	sf::RenderWindow* window;
 	std::map<std::string, SpriteCreator*> componentSpriteList;
-
+	std::map<std::string, SpriteCreator*> componentSpriteHover;
 private:
 	sf::Sprite Sprite;
 	std::array <sf::Texture, MAX_SPRITE> textureList;

@@ -46,6 +46,7 @@
     <Image Include="sprite\combat.jpg" />
     <Image Include="sprite\ContainerCombat.png" />
     <Image Include="sprite\Fleches.png" />
+    <Image Include="sprite\HP.png" />
     <Image Include="sprite\player (1).png" />
     <Image Include="sprite\player.png" />
     <Image Include="sprite\Red-Button.png" />

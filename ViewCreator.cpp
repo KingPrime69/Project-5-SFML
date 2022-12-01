@@ -74,11 +74,26 @@ void ViewCreator::addButtonText(sf::Text content, sf::Color color, int font, std
 
 void ViewCreator::addSprite(sf::Sprite buttonSPrite, int bgTexture,
 	float x, float y, sf::Vector2f size, int rectLeft, int rectTop,
-	int rectWidth, int rectHeight, bool alignCenter, const char* name)
+	int rectWidth, int rectHeight, bool alignCenter, const char* name, bool hover)
 {
-	componentSpriteList[name] = new SpriteCreator(this->window);
-	componentSpriteList[name]->addSprite(buttonSPrite, bgTexture, x, y, size,
-	rectLeft, rectTop, rectWidth, rectHeight, alignCenter);
+	if (hover == true) {
+		componentSpriteHover[name] = new SpriteCreator(this->window);
+		componentSpriteHover[name]->addSprite(buttonSPrite, bgTexture, x, y, size,
+			rectLeft, rectTop, rectWidth, rectHeight, alignCenter);
+	}
+	else {
+		componentSpriteList[name] = new SpriteCreator(this->window);
+		componentSpriteList[name]->addSprite(buttonSPrite, bgTexture, x, y, size,
+		rectLeft, rectTop, rectWidth, rectHeight, alignCenter);
+	}
+}
+
+void ViewCreator::addRect(sf::RectangleShape rect, sf::Color color,float x, float y, sf::Vector2f size)
+{
+	componentRectList.push_back(rect);
+	componentRectList.back().setPosition(x, y);
+	componentRectList.back().setFillColor(color);
+	componentRectList.back().setSize(size);
 }
 
 int ViewCreator::InitBackground()
@@ -191,6 +206,17 @@ void ViewCreator::draw()
 	if (!componentButtonTextList.empty()) {
 		for (unsigned int i = 0; i < componentButtonTextList.size(); i++)
 			this->window->draw(componentButtonTextList[i]);
+	}
+	if (!componentRectList.empty()) {
+		for (unsigned int i = 0; i < componentRectList.size(); i++)
+			this->window->draw(componentRectList[i]);
+	}
+	if (!componentSpriteHover.empty())
+	{
+		for (auto& i : componentSpriteHover)
+		{
+			i.second->draw();
+		}
 	}
 }
 
