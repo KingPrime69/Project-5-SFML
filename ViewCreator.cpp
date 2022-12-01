@@ -74,7 +74,7 @@ void ViewCreator::addButtonText(sf::Text content, sf::Color color, int font, std
 
 void ViewCreator::addSprite(sf::Sprite buttonSPrite, int bgTexture,
 	float x, float y, sf::Vector2f size, int rectLeft, int rectTop,
-	int rectWidth, int rectHeight, bool alignCenter, const char* name, bool hover)
+	int rectWidth, int rectHeight, bool alignCenter, string name, bool hover)
 {
 	if (hover == true) {
 		componentSpriteHover[name] = new SpriteCreator(this->window);

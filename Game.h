@@ -26,7 +26,7 @@ public:
 	int run();
 
 
-	void drawEntity(const Entity&);
+	//void drawEntity(const Entity&);
 
 private:
 	sf::RenderWindow window;

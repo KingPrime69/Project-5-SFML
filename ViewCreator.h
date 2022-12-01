@@ -4,8 +4,10 @@
 #include <vector>
 #include <array>
 #include <SFML/Graphics.hpp>
-
 #include "SpriteCreator.h"
+#include <string>
+
+using namespace std;
 
 class ViewCreator : public SpriteCreator
 {
@@ -30,7 +32,7 @@ public:
 
 	void addSprite(sf::Sprite buttonSPrite, int bgTexture, float x,
 		float y, sf::Vector2f size, int rectLeft, int rectTop, int rectWidth, 
-		int rectHeight, bool alignCenter, const char* name, bool hover);
+		int rectHeight, bool alignCenter, string name, bool hover);
 
 	void addRect(sf::RectangleShape rect, sf::Color color,float x, float y, 
 		sf::Vector2f size);

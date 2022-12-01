@@ -3,7 +3,13 @@
 ViewManager::ViewManager(sf::RenderWindow *window)
 {
 	this->window = window;
-	this->view.push(new CombatTemplate(this->window));
+	//create pokemon beforehand, should get player pokemon from team (get team in args) and ennemy through random encounter function (not done yet)
+	Pokemon Sprigatito("Sprigatito", 5);
+	Sprigatito.setMove(1, "Leafage");
+	Sprigatito.setMove(2, "Scratch");
+	Sprigatito.setMove(3, "Tail Whip");
+	Pokemon Riolu("Riolu", 5);
+	this->view.push(new Combat(this->window, Sprigatito, Riolu, "none"));
 	this->showMenuInGame = false;
 	this->MaxKeytime = 1.f;
 	this->Keytime = 0.f;
@@ -74,7 +80,9 @@ void ViewManager::SwapViewKeyboard()
 		this->avaible = getKeytime();
 		if (this->avaible)
 		{
-			this->view.push(new CombatTemplate(this->window));
+			Pokemon Sprigatito("Sprigatito", 5);
+			Pokemon Riolu("Riolu", 5);
+			this->view.push(new Combat(this->window, Sprigatito, Riolu, "none"));
 		}
 	}
 }

@@ -11,7 +11,6 @@
 #include "Pokemon.h"
 #include "Move.h"
 #include "Combat.h"
-#include "Source.h"
 
 #include "Config.h"
 
@@ -48,34 +47,8 @@ int main()
     cout << "NatureID : " << Riolu.getNatureID() << "\n";
     cout << "Nature : " << Riolu.getNatureName() << "\n\n";
 
-    Combat testcombat(Sprigatito, Riolu, "none");
-
-    testcombat.Attack(Sprigatito.getMove(2), testcombat.WildAIAttackDecision(testcombat.getOpponentPokemon()));
-
-    cout << Riolu.getName() << " Remaining HP : " << testcombat.getOpponentPokemon().getCurrentHP() << "\n";
-    cout << Sprigatito.getName() << " Remaining HP : " << testcombat.getPlayerPokemon().getCurrentHP() << "\n\n";
-
-    cout << "Name : " << testcombat.getPlayerPokemon().getName() << "\n";
-    cout << "HP : " << testcombat.getPlayerPokemon().getCurrentHP() << "\n";
-    cout << "Atk : " << testcombat.getPlayerPokemon().getCurrentAtk() << "\n";
-    cout << "Def : " << testcombat.getPlayerPokemon().getCurrentDef() << "\n";
-    cout << "SpeAtk : " << testcombat.getPlayerPokemon().getCurrentSpeAtk() << "\n";
-    cout << "SpeDef : " << testcombat.getPlayerPokemon().getCurrentSpeDef() << "\n";
-    cout << "Speed : " << testcombat.getPlayerPokemon().getCurrentSpeed() << "\n\n";
-
-    cout << "Name : " << testcombat.getOpponentPokemon().getName() << "\n";
-    cout << "HP : " << testcombat.getOpponentPokemon().getCurrentHP() << "\n";
-    cout << "Atk : " << testcombat.getOpponentPokemon().getCurrentAtk() << "\n";
-    cout << "Def : " << testcombat.getOpponentPokemon().getCurrentDef() << "\n";
-    cout << "SpeAtk : " << testcombat.getOpponentPokemon().getCurrentSpeAtk() << "\n";
-    cout << "SpeDef : " << testcombat.getOpponentPokemon().getCurrentSpeDef() << "\n";
-    cout << "Speed : " << testcombat.getOpponentPokemon().getCurrentSpeed() << "\n\n";
-
 
     //SpriteAnim anim;
-
-
-    
 
 
     Game game;

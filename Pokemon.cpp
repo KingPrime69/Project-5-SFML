@@ -594,22 +594,14 @@ string Pokemon::RandomNature()
 
 void Pokemon::CheckLevelOpportunity() 
 {
-	/*//get pokemon data
+	//get pokemon data
 	std::ifstream f("../Project-5-SFML/.json_data/pokemon.json");
 
 	//parse and serialize JSON
 	json data = json::parse(f);
 
-	string iStr;
-
-	for (size_t i = Pokemon::getLevel();  i < 101;  i++)
+	if (data[Pokemon::getName()]["LevelingPath"].find(to_string(Pokemon::getLevel())) != data[Pokemon::getName()]["LevelingPath"].end())
 	{
-		int test = i;
-		iStr = "\"" + to_string(test) + "\"";
-		cout << data[Pokemon::getName()]["LevelingPath"][iStr] << "\n\n";
-		if (data[Pokemon::getName()]["LevelingPath"]["7"].find("AvailableAttack") != data[Pokemon::getName()]["LevelingPath"]["7"].end())
-		{
-			cout << data[Pokemon::getName()]["LevelingPath"]["7"]["AvailableAttack"] << "\n";
-		}
-	}*/
+		cout << "Do you want to learn " << data[Pokemon::getName()]["LevelingPath"][to_string(Pokemon::getLevel())]["AvailableAttack"] << " ? \n";
+	}
 }

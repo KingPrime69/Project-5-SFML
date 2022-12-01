@@ -21,8 +21,6 @@
   <ItemGroup>
     <ClCompile Include="SpriteCreator.cpp" />
     <ClCompile Include="Combat.cpp" />
-    <ClCompile Include="CombatTemplate.cpp" />
-    <ClCompile Include="DropDown.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="ViewCreator.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -58,8 +56,6 @@
   <ItemGroup>
     <ClInclude Include="SpriteCreator.h" />
     <ClInclude Include="Combat.h" />
-    <ClInclude Include="CombatTemplate.h" />
-    <ClInclude Include="DropDown.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="ViewCreator.h" />
     <ClInclude Include="Menu.h" />

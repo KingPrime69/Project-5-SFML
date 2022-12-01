@@ -54,10 +54,10 @@ void Game::showView()
 }
 
 // Used to draw an entity in the game
-//void Game::drawEntity(const Entity& entity)
-//{
-//    this->window.draw(entity.getSprite());
-//}
+/*void Game::drawEntity(const Entity& entity)
+{
+    this->window.draw(entity.getSprite());
+}*/
 
 
 int Game::run()

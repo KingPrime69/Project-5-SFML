@@ -6,7 +6,7 @@
 
 #include "Menu.h"
 #include "InGame.h"
-#include "CombatTemplate.h"
+#include "Combat.h"
 
 class ViewManager
 {
