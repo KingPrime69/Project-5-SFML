@@ -202,9 +202,6 @@
     "PP": 20,
     "Contact": false,
     "Weather": "none"
-  },
-  //"Flamethrower": {
-  //  "Name": "Flamethrower"
-  //}
+  }
 
 }

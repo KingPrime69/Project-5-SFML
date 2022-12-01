@@ -107,7 +107,7 @@ int Game::run()
         }
         
         // Redraws the player in the window
-        this->drawEntity(player);
+       // this->drawEntity(player);
 
 
         this->viewManager->drawCurrentView();
