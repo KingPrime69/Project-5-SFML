@@ -1,26 +1,68 @@
 {
-  "Bulbasaur" : {
-    "Name" : "Bulbasaur",
+  "Sprigatito" : {
+    "Name" : "Sprigatito",
     "FirstType": "Grass",
-    "SecondType": "Poison",
-
-    "HP": 45,
-    "Atk": 49,
-    "Def": 49,
-    "SpeAtk": 65,
-    "SpeDef": 65,
-    "Speed": 45
-  },
-  "Charmander" : {
-    "Name" : "Charmander",
-    "FirstType": "Fire",
     "SecondType": "",
 
-    "HP": 39,
-    "Atk": 52,
-    "Def": 43,
-    "SpeAtk": 60,
-    "SpeDef": 50,
-    "Speed": 65
+    "ExpCurve" : "Medium Slow",
+    "ExpYield" : 62,
+
+    "HP": 40,
+    "Atk": 61,
+    "Def": 54,
+    "SpeAtk": 45,
+    "SpeDef": 45,
+    "Speed": 65,
+
+    "LevelingPath" : {
+      "7" : {
+        "AvailableAttack" : "Bite"
+      },
+      "10" : {
+        "AvailableAttack" : "Hone Claws"
+      },
+      "13" : {
+        "AvailableAttack" : "Magical Leaf"
+      },
+      "15" : {
+        "AvailableAttack" : "Quick Attack"
+      },
+      "16" : {
+        "NextEvolution" : "Floragato"
+      },
+      "17" : {
+        "AvailableAttack" : "Seed Bomb"
+      }
+    }
+  },
+  "Lechonk" : {
+    "Name" : "Lechonk",
+    "FirstType": "Normal",
+    "SecondType": "",
+
+    "ExpCurve" : "Medium Fast",
+    "ExpYield" : 51,
+
+    "HP": 54,
+    "Atk": 45,
+    "Def": 40,
+    "SpeAtk": 35,
+    "SpeDef": 45,
+    "Speed": 35
+  },
+  "Riolu" : {
+    "Name" : "Riolu",
+    "FirstType": "Fighting",
+    "SecondType": "",
+
+    "ExpCurve" : "Medium Slow",
+    "ExpYield" : 57,
+
+    "HP": 40,
+    "Atk": 70,
+    "Def": 40,
+    "SpeAtk": 35,
+    "SpeDef": 40,
+    "Speed": 60
   }
 }

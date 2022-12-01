@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Pokemon.h"
+#include <math.h>
 
 class Combat
 {
@@ -27,6 +28,9 @@ public :
 	bool CheckCritical(Move selectMove);
 	float CheckStab(Pokemon attackingPokemon, Move attackingMove);
 	float CheckTypeMatchup(Move attackingMove, Pokemon defendingPokemon);
+	bool CheckFlinchMoves(Move selectMove);
+	void StatusMoveCalc(string attackName, Pokemon& targetPokemon, Pokemon& attackingPokemon);
+	float ExpDropCalc(int baseExpYield);
 	Move WildAIAttackDecision(Pokemon WildPokemon);
 
 private : 

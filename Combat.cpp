@@ -62,7 +62,7 @@ void Combat::Attack(Move playerMove, Move opponentMove)
 
 	playerPlaysFirst = Combat::CheckPriority(playerMove, opponentMove);
 
-	// ===== Stats Clash (Crits not included | Mods not included : concerns items, certain moves/talents or specific conditions like weather =====
+	// ===== Stats Clash (Mods not included : concerns items, certain moves/talents or specific conditions like weather =====
 
 	if (playerPlaysFirst) {
 		
@@ -94,9 +94,19 @@ void Combat::Attack(Move playerMove, Move opponentMove)
 		//Manage Stat reduction moves
 
 		else if (playerMove.getCategory() == "Status") {
-		// not done yet !!!!!!!!!!
+			Combat::StatusMoveCalc(playerMove.getName(), opponentPokemon, playerPokemon);
 		}
 
+		if (Combat::opponentPokemon.getCurrentHP() <= 0) {
+			//temp function : exp calculation is incomplete
+			cout << "Ennemy " << opponentPokemon.getName() << " has fainted, " << opponentPokemon.getExpYield() << " exp obtained ! \n";
+			playerPokemon.setExp(opponentPokemon.getExpYield());
+			return;
+		}
+
+		if (Combat::CheckFlinchMoves(playerMove) == true) {
+			return;
+		}
 
 		// ----- Ai Turn -----
 
@@ -126,9 +136,16 @@ void Combat::Attack(Move playerMove, Move opponentMove)
 		//Manage Stat reduction moves
 
 		else if (opponentMove.getCategory() == "Status") {
-			// not done yet !!!!!!!!!!
+			Combat::StatusMoveCalc(opponentMove.getName(), playerPokemon, opponentPokemon);
+		}
+
+		if (Combat::playerPokemon.getCurrentHP() <= 0) {
+			cout << playerPokemon.getName() << " fainted ! \n";
+			//add party check to determine if fight is lost
+			return;
 		}
 	}
+
 	else if (!playerPlaysFirst) {
 
 		// ----- Ai Turn -----
@@ -159,9 +176,18 @@ void Combat::Attack(Move playerMove, Move opponentMove)
 		//Manage Stat reduction moves
 
 		else if (opponentMove.getCategory() == "Status") {
-			// not done yet !!!!!!!!!!
+			Combat::StatusMoveCalc(opponentMove.getName(), playerPokemon, opponentPokemon);
 		}
 
+		if (Combat::playerPokemon.getCurrentHP() <= 0) {
+			cout << playerPokemon.getName() << " fainted ! \n";
+			//add party check to determine if fight is lost
+			return;
+		}
+
+		if (Combat::CheckFlinchMoves(opponentMove) == true) {
+			return;
+		}
 
 		// ----- Player Turn -----
 
@@ -191,9 +217,17 @@ void Combat::Attack(Move playerMove, Move opponentMove)
 		//Manage Stat reduction moves
 
 		else if (playerMove.getCategory() == "Status") {
-			// not done yet !!!!!!!!!!
+			Combat::StatusMoveCalc(playerMove.getName(), opponentPokemon, playerPokemon);
+		}
+
+		if (Combat::opponentPokemon.getCurrentHP() <= 0) {
+
+			cout << "Ennemy " << opponentPokemon.getName() << " has fainted, " <<  Combat::ExpDropCalc(Combat::opponentPokemon.getExpYield()) << " exp obtained ! \n";
+			playerPokemon.setExp(Combat::ExpDropCalc(Combat::opponentPokemon.getExpYield()));
+			return;
 		}
 	}
+	return;
 }
 
 bool Combat::CheckPriority(Move playerMove, Move opponentMove)
@@ -202,23 +236,37 @@ bool Combat::CheckPriority(Move playerMove, Move opponentMove)
 
 	bool playerPlaysFirst;
 
+	//priority moves
+	if (playerMove.getName() == "Quick Attack") {
+		if (playerMove.getName() == opponentMove.getName()) {
+			if ((rand() % 2) == 0) {
+				return playerPlaysFirst = true;
+			}
+			else {
+				return playerPlaysFirst = false;
+			}
+		}
+		return playerPlaysFirst = true;
+	}
+
 	//Speed comparison
 	if (playerPokemon.getCurrentSpeed() > opponentPokemon.getCurrentSpeed()) {
-		playerPlaysFirst = true;
+		return playerPlaysFirst = true;
 	}
 	//Manage comparison when both speed are equal (random 50/50)
 	else if (playerPokemon.getCurrentSpeed() == opponentPokemon.getCurrentSpeed()) {
 
 		if ((rand() % 2) == 0) {
-			playerPlaysFirst = true;
+			return playerPlaysFirst = true;
 		}
 		else {
-			playerPlaysFirst = false;
+			return playerPlaysFirst = false;
 		}
 	}
 	else {
-		playerPlaysFirst = false;
+		return playerPlaysFirst = false;
 	}
+
 	return playerPlaysFirst;
 }
 
@@ -230,7 +278,7 @@ bool Combat::CheckCritical(Move selectMove)
 
 	//check Critical Chance stage
 	//if (selectMove.getHighCritMove) { //do stage 1 crit chance (1/8) }
-	/*else*/ if ((rand() % 2) == 0) {
+	/*else*/ if ((rand() % 24) == 0) {
 		isCritical = true;
 		cout << "\nCritical !\n\n";
 	}
@@ -743,6 +791,53 @@ float Combat::CheckTypeMatchup(Move attackingMove, Pokemon defendingPokemon)
 	cout << "Type Mult : " << TypeMultiplier << "\n";
 
 	return TypeMultiplier;
+}
+
+bool Combat::CheckFlinchMoves(Move selectMove)
+{
+	if (selectMove.getName() == "Bite") {
+		cout << "Ennemy Flinched ?\n";
+		if (rand() % 10 + 1 == 1 || rand() % 10 + 1 == 2 || rand() % 10 + 1 == 3) {
+			cout << "Ennemy Flinched !\n\n";
+			return true;
+		}
+
+	}
+}
+
+void Combat::StatusMoveCalc(string attackName, Pokemon& targetPokemon, Pokemon& attackingPokemon)
+{
+	//Defense reduction moves
+	if (attackName == "Tail Whip") {
+		if (targetPokemon.getDefStage() >= -6) {
+			targetPokemon.setDefStage(targetPokemon.getDefStage() - 1);
+		}
+		else {
+			cout << "Ennemy Defense can't go any lower !";
+		}
+	}
+
+	//Atk boost moves
+	else if (attackName == "Hone Claws") {
+		if (targetPokemon.getAtkStage() <= 6) {
+			attackingPokemon.setAtkStage(targetPokemon.getAtkStage() + 1);
+		}
+		else {
+			cout << "Ennemy Defense can't go any lower !";
+		}
+	}
+
+	targetPokemon.SyncLevelStat("All", targetPokemon.getLevel());
+	attackingPokemon.SyncLevelStat("All", attackingPokemon.getLevel());
+}
+
+float Combat::ExpDropCalc(int baseExpYield)
+{
+	float expYield = 0;
+
+	expYield = round(((((baseExpYield * Combat::opponentPokemon.getLevel()) / 5)) * pow(((static_cast<float>(2) * Combat::opponentPokemon.getLevel() + 10) / (Combat::opponentPokemon.getLevel() + Combat::playerPokemon.getLevel() + 10)), 2.5) + 1));
+
+	return expYield;
 }
 
 Move Combat::WildAIAttackDecision(Pokemon WildPokemon)

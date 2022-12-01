@@ -18,34 +18,56 @@ int main()
 {
     //Pokemon Tests
 
-    Pokemon Bulbasaur ("Bulbasaur", 5);
-    Bulbasaur.setMove(1, "Tackle");
-    Bulbasaur.setMove(2, "Growl");
-    Pokemon Charmander ("Charmander", 5);
-    Charmander.setMove(1, "Scratch");
-    Charmander.setMove(2, "Growl");
+    Pokemon Sprigatito("Sprigatito", 5);
 
-    cout << "Name : " << Bulbasaur.getName() << "\n";
-    cout << "HP : " << Bulbasaur.getCurrentHP() << "\n";
-    cout << "Atk : " << Bulbasaur.getCurrentAtk() << "\n";
-    cout << "Def : " << Bulbasaur.getCurrentDef() << "\n";
-    cout << "SpeAtk : " << Bulbasaur.getCurrentSpeAtk() << "\n";
-    cout << "SpeDef : " << Bulbasaur.getCurrentSpeDef() << "\n";
-    cout << "Speed : " << Bulbasaur.getCurrentSpeed() << "\n\n";
+    Sprigatito.CheckLevelOpportunity();
 
-    cout << "Name : " << Charmander.getName() << "\n";
-    cout << "HP : " << Charmander.getCurrentHP() << "\n";
-    cout << "Atk : " << Charmander.getCurrentAtk() << "\n";
-    cout << "Def : " << Charmander.getCurrentDef() << "\n";
-    cout << "SpeAtk : " << Charmander.getCurrentSpeAtk() << "\n";
-    cout << "SpeDef : " << Charmander.getCurrentSpeDef() << "\n";
-    cout << "Speed : " << Charmander.getCurrentSpeed() << "\n\n";
+    Pokemon Riolu ("Riolu", 5);
+    Riolu.setMove(1, "Scratch");
 
-    Combat testcombat(Charmander, Bulbasaur, "none");
+    cout << "Name : " << Sprigatito.getName() << "\n";
+    cout << "HP : " << Sprigatito.getCurrentHP() << "\n";
+    cout << "Atk : " << Sprigatito.getCurrentAtk() << "\n";
+    cout << "Def : " << Sprigatito.getCurrentDef() << "\n";
+    cout << "SpeAtk : " << Sprigatito.getCurrentSpeAtk() << "\n";
+    cout << "SpeDef : " << Sprigatito.getCurrentSpeDef() << "\n";
+    cout << "Speed : " << Sprigatito.getCurrentSpeed() << "\n";
+    cout << "NatureID : " << Sprigatito.getNatureID() << "\n";
+    cout << "Nature : " << Sprigatito.getNatureName() << "\n\n";
 
-    testcombat.Attack(Charmander.getMove(1), testcombat.WildAIAttackDecision(testcombat.getOpponentPokemon()));
-    cout << "Remaining HP : " << testcombat.getOpponentPokemon().getCurrentHP() << "\n";
-    cout << "Remaining HP : " << testcombat.getPlayerPokemon().getCurrentHP() << "\n";
+    cout << "Name : " << Riolu.getName() << "\n";
+    cout << "HP : " << Riolu.getCurrentHP() << "\n";
+    cout << "Atk : " << Riolu.getCurrentAtk() << "\n";
+    cout << "Def : " << Riolu.getCurrentDef() << "\n";
+    cout << "SpeAtk : " << Riolu.getCurrentSpeAtk() << "\n";
+    cout << "SpeDef : " << Riolu.getCurrentSpeDef() << "\n";
+    cout << "Speed : " << Riolu.getCurrentSpeed() << "\n";
+    cout << "NatureID : " << Riolu.getNatureID() << "\n";
+    cout << "Nature : " << Riolu.getNatureName() << "\n\n";
+
+    Combat testcombat(Sprigatito, Riolu, "none");
+
+    testcombat.Attack(Sprigatito.getMove(2), testcombat.WildAIAttackDecision(testcombat.getOpponentPokemon()));
+
+    cout << Riolu.getName() << " Remaining HP : " << testcombat.getOpponentPokemon().getCurrentHP() << "\n";
+    cout << Sprigatito.getName() << " Remaining HP : " << testcombat.getPlayerPokemon().getCurrentHP() << "\n\n";
+
+    cout << "Name : " << testcombat.getPlayerPokemon().getName() << "\n";
+    cout << "HP : " << testcombat.getPlayerPokemon().getCurrentHP() << "\n";
+    cout << "Atk : " << testcombat.getPlayerPokemon().getCurrentAtk() << "\n";
+    cout << "Def : " << testcombat.getPlayerPokemon().getCurrentDef() << "\n";
+    cout << "SpeAtk : " << testcombat.getPlayerPokemon().getCurrentSpeAtk() << "\n";
+    cout << "SpeDef : " << testcombat.getPlayerPokemon().getCurrentSpeDef() << "\n";
+    cout << "Speed : " << testcombat.getPlayerPokemon().getCurrentSpeed() << "\n\n";
+
+    cout << "Name : " << testcombat.getOpponentPokemon().getName() << "\n";
+    cout << "HP : " << testcombat.getOpponentPokemon().getCurrentHP() << "\n";
+    cout << "Atk : " << testcombat.getOpponentPokemon().getCurrentAtk() << "\n";
+    cout << "Def : " << testcombat.getOpponentPokemon().getCurrentDef() << "\n";
+    cout << "SpeAtk : " << testcombat.getOpponentPokemon().getCurrentSpeAtk() << "\n";
+    cout << "SpeDef : " << testcombat.getOpponentPokemon().getCurrentSpeDef() << "\n";
+    cout << "Speed : " << testcombat.getOpponentPokemon().getCurrentSpeed() << "\n\n";
+
 
     //SpriteAnim anim;
 

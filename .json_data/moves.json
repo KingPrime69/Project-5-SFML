@@ -19,13 +19,77 @@
                 "Contact": true,
                 "Weather": "none"
         },
-        "Growl" : {
-                "Name" : "Growl",
+        "Quick Attack" : {
+                "Name" : "Quick Attack",
+                "Type": "Normal",
+                "Category": "Physical",
+                "Power": 40,
+                "Accuracy": 100,
+                "PP": 30,
+                "Contact": true,
+                "Weather": "none"
+        },
+        "Tail Whip" : {
+                "Name" : "Tail Whip",
                 "Type": "Normal",
                 "Category": "Status",
                 "Power": 0,
                 "Accuracy": 100,
+                "PP": 30,
+                "Contact": false,
+                "Weather": "none"
+        },
+
+
+        "Leafage" : {
+                "Name" : "Leafage",
+                "Type" : "Grass",
+                "Category": "Physical",
+                "Power": 40,
+                "Accuracy": 100,
                 "PP": 40,
+                "Contact": false,
+                "Weather": "none"
+        },
+        "Magical Leaf" : {
+                "Name" : "Magical Leaf",
+                "Type" : "Grass",
+                "Category": "Special",
+                "Power": 60,
+                "Accuracy": 9999,
+                "PP": 20,
+                "Contact": false,
+                "Weather": "none"
+        },
+        "Seed Bomb" : {
+                "Name" : "Seed Bomb",
+                "Type" : "Grass",
+                "Category": "Physical",
+                "Power": 80,
+                "Accuracy": 100,
+                "PP": 15,
+                "Contact": false,
+                "Weather": "none"
+        },
+
+
+        "Bite" : {
+                "Name" : "Bite",
+                "Type" : "Dark",
+                "Category": "Physical",
+                "Power": 60,
+                "Accuracy": 100,
+                "PP": 25,
+                "Contact": true,
+                "Weather": "none"
+        },
+        "Hone Claws" : {
+                "Name" : "Hone Claws",
+                "Type" : "Dark",
+                "Category": "Status",
+                "Power": 0,
+                "Accuracy": 100,
+                "PP": 15,
                 "Contact": false,
                 "Weather": "none"
         }
