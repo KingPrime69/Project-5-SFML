@@ -151,12 +151,20 @@ void ViewCreator::selectedButton()
 	if(this->keyboard.isKeyPressed(this->keyboard.S) && !componentSpriteList.empty() && !componentButtonTextList.empty())
 	{
 		this->avaible = this->getKeytime();
-		if (this->pos < length-1 && avaible)
+		if (this->pos == length - 1 && avaible)
+		{
+			this->pos = 0;
+			int posN = this->pos + length - 1;
+			componentButtonTextList[this->pos].setOutlineColor(this->colorHover);
+			componentButtonTextList[this->pos].setOutlineThickness(3);
+			componentButtonTextList[posN].setOutlineThickness(0);
+		}
+		else if (this->pos < length-1 && avaible)
 		{
 			++this->pos;
 			int posN = this->pos - 1;
 			componentButtonTextList[this->pos].setOutlineColor(this->colorHover);
-			componentButtonTextList[this->pos].setOutlineThickness(5);
+			componentButtonTextList[this->pos].setOutlineThickness(3);
 			componentButtonTextList[posN].setOutlineThickness(0);
 		}
 	}
@@ -164,11 +172,20 @@ void ViewCreator::selectedButton()
 	if (this->keyboard.isKeyPressed(this->keyboard.Z) && !componentSpriteList.empty() && !componentButtonTextList.empty())
 	{
 		this->avaible = this->getKeytime();
-		if (this->pos > posMin && avaible)
+		if (this->pos == 0 && avaible)
+		{
+			this->pos = length - 1;
+			int posP = 0;
+			componentButtonTextList[this->pos].setOutlineColor(this->colorHover);
+			componentButtonTextList[this->pos].setOutlineThickness(3);
+			componentButtonTextList[posP].setOutlineThickness(0);
+		}
+		else if (this->pos > posMin && avaible)
 		{
 			--this->pos;
 			int posP = this->pos + 1;
-			componentButtonTextList[this->pos].setOutlineThickness(5);
+			componentButtonTextList[this->pos].setOutlineColor(this->colorHover);
+			componentButtonTextList[this->pos].setOutlineThickness(3);
 			componentButtonTextList[posP].setOutlineThickness(0);
 		}
 	}

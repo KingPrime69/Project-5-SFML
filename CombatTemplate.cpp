@@ -3,14 +3,19 @@
 CombatTemplate::CombatTemplate(sf::RenderWindow* window) : ViewCreator(window)
 {
 	this->window = window;
-	initComponent();
+	initView("Gnegne", 34, 1, 27, 29, 0, 0, 150,
+		"Taper", "Magical Leaf", "Magical Leaf tes", "Trisomie",
+		"Les gitans", 195, 401, 42, 31, 0, 0,5);
 }
 
 CombatTemplate::~CombatTemplate()
 {
 }
 
-void CombatTemplate::initComponent()
+void CombatTemplate::initView(const char* namePokePlayer, int spritePlayerX, int spritePlayerY, int spritePlayerW, int spritePlayerH,
+	int increPokePlayerX, int increPokePlayerY, int lvlPokePlayer,
+	const char* Skill1, const char* Skill2, const char* Skill3, const char* Skill4,
+	const char* namePokeNP, int spriteNPX, int spriteNPY, int spriteNPW, int spriteNPH, int increNPX, int increNPY, int lvlPokeNP)
 {
 	this->createBackground(1);
 
@@ -19,12 +24,16 @@ void CombatTemplate::initComponent()
 	int pokeRightX = this->window->getSize().x - 275;
 
 	//### Pokemon ###//
-	this->addSprite(componentSprite[0], 2, pokeLeftX, WindowYPokemon+100, sf::Vector2f(3, 3), 34, 1, 27, 29, false, "GneuGneu", false);
-	this->addSprite(componentSprite[1], 2, pokeRightX - 200, WindowYPokemon - 100, sf::Vector2f(3, 3), 4, 1057, 154, 119, false, "Gneneu", false);
+	//34, 1, 27, 29,
+	this->addSprite(componentSprite[0], 2, pokeLeftX + increPokePlayerX, WindowYPokemon + 100 + increPokePlayerY, 
+		sf::Vector2f(3, 3), spritePlayerX, spritePlayerY, spritePlayerW, spritePlayerH, false, namePokePlayer, false);
+	this->addSprite(componentSprite[1], 2, pokeRightX + increNPX, WindowYPokemon + 100 + increNPY, sf::Vector2f(3, 3), spriteNPX,
+		spriteNPY, spriteNPW, spriteNPH, 
+		false, namePokeNP, false);
 	//### ~Pokemon ###//
 	
-	//groudon (componentSprite[1], 2, pokeRightX-200, WindowY-100, sf::Vector2f(3, 3), 4, 1057, 154, 119, false, "Gneneu");
-	//gitan (componentSprite[0], 2, pokeRightX, WindowY+100, sf::Vector2f(3, 3), 195, 401, 42, 31, false, "Gneneu", false);
+	//groudon (componentSprite[1], 2, pokeRightX-200, WindowYPokemon-100, sf::Vector2f(3, 3), 4, 1057, 154, 119, false, "Gneneu");
+	//gitan (componentSprite[0], 2, pokeRightX, WindowYPokemon+100, sf::Vector2f(3, 3), 195, 401, 42, 31, false, "Gneneu", false);
 
 	//### Box Info ###//
 	this->addSprite(componentSprite[2], 3, pokeLeftX-100, WindowYPokemon-200, sf::Vector2f(1.5, 1.5), 46, 32, 270, 54, false, "InfoPokemonPlayer", false);
@@ -32,18 +41,17 @@ void CombatTemplate::initComponent()
 	//### ~Box Info ###//
 
 	//### Name Pokemon ###//
-	this->addText(componentText[0], sf::Color::Black, 3, "GneGne", pokeLeftX - 80, WindowYPokemon - 200, 40, false);
-	this->addText(componentText[1], sf::Color::Black, 3, "Les gitans", pokeRightX - 180, WindowYPokemon - 200, 40, false);
+	this->addText(componentText[0], sf::Color::Black, 3, namePokePlayer, pokeLeftX - 80, WindowYPokemon - 200, 40, false);
+	this->addText(componentText[1], sf::Color::Black, 3, namePokeNP, pokeRightX - 180, WindowYPokemon - 200, 40, false);
 	//### ~Name Pokemon ###//
 
 	//### Lvl Pokemon ###//
-	int lvl = 16;
-	std::string lvlSting = "Lv" + std::to_string(lvl);
+	std::string lvlSting = "Lv" + std::to_string(lvlPokePlayer);
 	std::cout << lvlSting << std::endl;
 	this->addText(componentText[2], sf::Color::Black, 3, lvlSting, pokeLeftX + 240, WindowYPokemon - 200, 35, false);
 
-	lvl = 5;
-	lvlSting = "Lv" + std::to_string(lvl);
+
+	lvlSting = "Lv" + std::to_string(lvlPokeNP);
 	std::cout << lvlSting << std::endl;
 	this->addText(componentText[3], sf::Color::Black, 3, lvlSting, pokeRightX + 140, WindowYPokemon - 200, 35, false);
 	//### ~Lvl Pokemon ###//
@@ -58,8 +66,21 @@ void CombatTemplate::initComponent()
 	this->addRect(componentRect[0], sf::Color::Green, pokeRightX - 2, WindowYPokemon - 145, sf::Vector2f(194, 10));
 	//### ~HP barre ###//
 
-	this->createButton(componentText[1], sf::Color::Black, sf::Color::Yellow, 3, "Skill 1",
-		1/(this->window->getSize().x - 100), this->window->getSize().y - 100, 100, 25,
-		25, componentButton[0], "Attack", 3, sf::Vector2f(0.25, 0.25),
-		15, 13, 435, 434, false);
+	int skillX = 1 / this->window->getSize().x + 50;
+	int skillY = this->window->getSize().y - 200;
+
+	int sizeBoxY = 1.75;
+	this->addText(componentText[2], sf::Color::Black, 3, "Attaque :", skillX + 25, skillY - 75, 50, false);
+	this->createButton(componentText[1], sf::Color::Black, sf::Color::Red, 3, Skill1,
+		skillX, skillY, 40, 25, 30, componentButton[0], Skill1, 3, sf::Vector2f(0.75, 1.75),
+		46, 32, 270, 54, false);
+	this->createButton(componentText[2], sf::Color::Black, sf::Color::Red, 3, Skill2,
+		skillX, skillY + 90, 40, 25, 30, componentButton[1], Skill2, 3, sf::Vector2f(0.75, 1.75),
+		46, 32, 270, 54, false);
+	this->createButton(componentText[3], sf::Color::Black, sf::Color::Red, 3, Skill3,
+		skillX + 250, skillY, 40, 25, 30, componentButton[2], Skill3, 3, sf::Vector2f(0.75, 1.75),
+		46, 32, 270, 54, false);
+	this->createButton(componentText[4], sf::Color::Black, sf::Color::Red, 3, Skill4,
+		skillX + 250, skillY + 90, 40, 25, 30, componentButton[3], Skill4, 3, sf::Vector2f(0.75, 1.75),
+		46, 32, 270, 54, false);
 }

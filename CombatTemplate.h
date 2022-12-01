@@ -6,7 +6,7 @@
 
 #include "ViewCreator.h"
 
-#define MAX_NUMBER_OF_TEXT 4
+#define MAX_NUMBER_OF_TEXT 5
 #define MAX_NUMBER_OF_SPRITE 5
 #define MAX_NUMBER_OF_RECT 2
 #define MAX_NUMBER_OF_RECT 4
@@ -16,15 +16,13 @@ public:
 	CombatTemplate(sf::RenderWindow* window);
 	~CombatTemplate();
 
-	void setBackgroud(int backgroundTexture);
+	void initView(const char* namePokePlayer, int spritePlayerX, int spritePlayerY, 
+		int spritePlayerW, int spritePlayerH, int increPokePlayerX, int increPokePlayerY, 
+		int lvlPokePlayer, const char* Skill1, const char* Skill2, const char* Skill3, 
+		const char* Skill4, const char* namePokeNP, int spriteNPX, int spriteNPY, int spriteNPW,
+		int spriteNPH, int increNPX, int increNPY, int lvlPokeNP);
 
-	void setSpritePokemonPlayer();
-	void setInfoPokemonPlayer();
 
-	void setSpritePokemonNP();
-	void setInfoPokemonNP();
-
-	void initComponent();
 
 protected:
 
