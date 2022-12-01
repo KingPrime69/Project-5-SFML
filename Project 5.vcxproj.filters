@@ -42,9 +42,6 @@
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
     <ClCompile Include="Pokemon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -57,10 +54,19 @@
     <ClCompile Include="SpriteAnim.cpp">
       <Filter>Source Files\Sprite</Filter>
     </ClCompile>
-    <ClCompile Include="InterfaceTemplate.cpp">
+    <ClCompile Include="SpriteCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
+    <ClCompile Include="InGame.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="DropDown.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CombatTemplate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -69,6 +75,12 @@
       <Filter>Resource Files</Filter>
     </Font>
     <Font Include="pokemonSolid.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="ortemmn.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="pokemonPixel.ttf">
       <Filter>Resource Files</Filter>
     </Font>
   </ItemGroup>
@@ -94,6 +106,21 @@
     <Image Include="sprite\StartBg.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="sprite\Red-Button.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="sprite\Fleches.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="sprite\combat.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="sprite\Sprite-SheetPokemon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="sprite\ContainerCombat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -111,9 +138,6 @@
     <ClInclude Include="Menu.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
-    <ClInclude Include="test.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
     <ClInclude Include="Pokemon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -126,10 +150,19 @@
     <ClInclude Include="Source.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InterfaceTemplate.h">
+    <ClInclude Include="SpriteCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h">
+    <ClInclude Include="InGame.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="DropDown.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CombatTemplate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

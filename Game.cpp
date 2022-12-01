@@ -1,4 +1,6 @@
 #include "Game.h"
+#include "Player.h"
+#include "Config.h"
 
 Game::Game() : window(sf::VideoMode(1200, 800), "Poke moon")
 {
@@ -51,6 +53,12 @@ void Game::showView()
 
 }
 
+// Used to draw an entity in the game
+void Game::drawEntity(const Entity& entity)
+{
+    this->window.draw(entity.getSprite());
+}
+
 
 int Game::run()
 {
@@ -82,10 +90,27 @@ int Game::run()
         //    else frame++;
         //}
         // Draw the string
+        // Player creation & movement test
+
+        sf::Texture playerTexture;
+        if (!playerTexture.loadFromFile(PLAYER_TEXTURE_PATH))
+        {
+            // error...
+        }
+
+        //Player player = Player(playerTexture);
+        //player.setDirection(4);
+
+        
+          //  player.movingEntity();
+        
+
+       // this->drawEntity(player);
+
 
         this->viewManager->drawCurrentView();
-        this->viewManager->swapView();
-
+        this->viewManager->swapViewButton();
+        this->viewManager->SwapViewKeyboard();
         //this->window.drawSprite(salameche);
 
         //for (unsigned int i = 0; i < menu.componentTextList.size(); i++)this->window.drawText(menu.componentTextList[i]);

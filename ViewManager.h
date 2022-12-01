@@ -5,7 +5,8 @@
 #include <SFML/Graphics.hpp>
 
 #include "Menu.h"
-#include "test.h"
+#include "InGame.h"
+#include "CombatTemplate.h"
 
 class ViewManager
 {
@@ -14,14 +15,27 @@ public:
 	ViewManager(sf::RenderWindow *window);
 	~ViewManager();
 
-	void swapView();
+	void updateKeytime();
+	bool getKeytime();
+
+	void SwapViewKeyboard();
+
+	void swapViewButton();
 	void drawCurrentView();
 
 
 
 private:
 	//Menu* menu;
-	std::stack<InterfaceTemplate*> view;
+	std::stack<ViewCreator*> view;
 	sf::RenderWindow *window;
+	sf::Keyboard keyboard;
+	std::string currentView;
+	bool showMenuInGame;
+
+	float MaxKeytime;
+	float Keytime;
+
+	bool avaible;
 };
 

@@ -6,13 +6,14 @@
 
 #include "ViewCreator.h"
 
-#define MAX_NUMBER_OF_TEXT 6
-#define MAX_NUMBER_OF_SPRITE 2
-class Menu : public ViewCreator
+
+#define MAX_NUMBER_OF_TEXT 4
+#define MAX_NUMBER_OF_SPRITE 4
+class InGame : public ViewCreator
 {
 public:
-	Menu(sf::RenderWindow* window);
-	~Menu();
+	InGame(sf::RenderWindow* window, bool menu);
+	~InGame();
 
 
 	void initComponent();
@@ -20,5 +21,5 @@ public:
 private:
 	sf::Sprite componentButton[MAX_NUMBER_OF_SPRITE];
 	std::array <sf::Text, MAX_NUMBER_OF_TEXT> componentText;
+	bool showMenu;
 };
-

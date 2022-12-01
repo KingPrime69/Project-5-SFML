@@ -19,44 +19,56 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="SpriteCreator.cpp" />
     <ClCompile Include="Combat.cpp" />
+    <ClCompile Include="CombatTemplate.cpp" />
+    <ClCompile Include="DropDown.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="InterfaceTemplate.cpp" />
+    <ClCompile Include="ViewCreator.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Move.cpp" />
     <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="SpriteAnim.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="InGame.cpp" />
     <ClCompile Include="ViewManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="ortemmn.ttf" />
+    <Font Include="pokemonPixel.ttf" />
     <Font Include="pokemonSolid.ttf" />
     <Font Include="pokemonHollow.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="sprite\AManim.png" />
     <Image Include="sprite\buttonKiwi.png" />
+    <Image Include="sprite\combat.jpg" />
+    <Image Include="sprite\ContainerCombat.png" />
+    <Image Include="sprite\Fleches.png" />
+    <Image Include="sprite\HP.png" />
     <Image Include="sprite\player (1).png" />
     <Image Include="sprite\player.png" />
+    <Image Include="sprite\Red-Button.png" />
+    <Image Include="sprite\Sprite-SheetPokemon.png" />
     <Image Include="sprite\Sprite-Starter.png" />
     <Image Include="sprite\spriteSheet.png" />
     <Image Include="sprite\StartBg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Button.h" />
+    <ClInclude Include="SpriteCreator.h" />
     <ClInclude Include="Combat.h" />
+    <ClInclude Include="CombatTemplate.h" />
+    <ClInclude Include="DropDown.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="InterfaceTemplate.h" />
+    <ClInclude Include="ViewCreator.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Move.h" />
     <ClInclude Include="Pokemon.h" />
     <ClInclude Include="Source.h" />
     <ClInclude Include="SpriteAnim.h" />
     <ClInclude Include="SpriteManager.h" />
-    <ClInclude Include="test.h" />
+    <ClInclude Include="InGame.h" />
     <ClInclude Include="ViewManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
