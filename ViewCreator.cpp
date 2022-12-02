@@ -91,6 +91,7 @@ void ViewCreator::addSprite(sf::Sprite buttonSPrite, int bgTexture,
 void ViewCreator::addRect(sf::RectangleShape rect, sf::Color color,float x, float y, 
 	sf::Vector2f size, std::string name)
 {
+	std::cout << "Size X : " << size.x << std::endl;
 	componentRectList[name].setPosition(x, y);
 	componentRectList[name].setFillColor(color);
 	componentRectList[name].setSize(size);
@@ -199,6 +200,15 @@ std::string ViewCreator::getActionButton()
 	}
 	return "";
 }
+
+void ViewCreator::updateHp()
+{
+	if (!componentRectList.empty()) {
+			componentRectList.clear();
+	}
+}
+
+
 
 
 void ViewCreator::draw()

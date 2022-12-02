@@ -46,8 +46,8 @@ void Game::handleEvents(void)
 int Game::run()
 {
     // Load a sprite to display
-    //sf::Texture texture;
-    //if (!texture.loadFromFile("sprite/player (1).png"))return EXIT_FAILURE;
+    sf::Texture texture;
+    if (!texture.loadFromFile("sprite/player (1).png"))return EXIT_FAILURE;
 
 
     //anim.createSprite(1, 0, 13, 16, 200, 300);
@@ -60,13 +60,13 @@ int Game::run()
 
 
     // Player creation & movement test
-    //sf::Texture playerTexture;
-    //if (!playerTexture.loadFromFile(PLAYER_TEXTURE_PATH))
-    //{
-    //    // error...
-    //}
-    //Player player = Player(playerTexture);
-    //player.setDirection(4); // Sets player's direction to the south
+    sf::Texture playerTexture;
+    if (!playerTexture.loadFromFile(PLAYER_TEXTURE_PATH))
+    {
+        // error...
+    }
+    Player player = Player(playerTexture);
+    player.setDirection(4); // Sets player's direction to the south
     
     while (this->window.isOpen())
     {
@@ -84,10 +84,10 @@ int Game::run()
         // Draw the string
 
         // Checks is a key is pressed before moving the player
-        //if (sf::Keyboard::isKeyPressed)
-        //{
-        //    player.movingEntity();
-        //}
+        if (sf::Keyboard::isKeyPressed)
+        {
+            player.movingEntity();
+        }
         
         // Redraws the player in the window
         //this->drawEntity(player);

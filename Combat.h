@@ -56,6 +56,7 @@ private :
 	string weather;
 	int weatherTurn;
 
+
 	std::array <sf::Sprite, MAX_NUMBER_OF_SPRITE> componentSprite;
 	std::array <sf::Text, MAX_NUMBER_OF_TEXT> componentText;
 	std::array <sf::RectangleShape, MAX_NUMBER_OF_RECT> componentRect;

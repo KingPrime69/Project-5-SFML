@@ -967,6 +967,19 @@ void Combat::initView(Pokemon playerPokemon, int spritePlayerX, int spritePlayer
 
 void Combat::drawHP(Pokemon pokemonPlayer, Pokemon pokemonEnemy)
 {
+	int maxHpPlayer = pokemonPlayer.getHP();
+	int maxHpPokemon = pokemonEnemy.getHP();
 	int hpPlayer = pokemonPlayer.getCurrentHP();
 	int hpPokemon = pokemonEnemy.getCurrentHP();
+
+	int WindowYPokemon = this->window->getSize().y / 2 - 100;
+	int pokeLeftX = this->window->getSize().x / 7;
+	int pokeRightX = this->window->getSize().x - 275;
+
+	int formulePlayer = maxHpPlayer - (maxHpPlayer - hpPlayer) * 194;
+	int formulePokemon = maxHpPokemon - (maxHpPokemon / hpPokemon) * 194;
+	std::cout << "formule : " << formulePlayer << std::endl;
+	std::cout << "calc : " << 194 - formulePlayer << std::endl;
+	this->addRect(componentRect[0], sf::Color::Green, pokeLeftX + 98, WindowYPokemon - 145, sf::Vector2f(194 - formulePlayer, 10), "hpPlayer");
+	this->addRect(componentRect[0], sf::Color::Green, pokeRightX - 2, WindowYPokemon - 145, sf::Vector2f(194 - formulePokemon, 10), "hpEnemy");
 }

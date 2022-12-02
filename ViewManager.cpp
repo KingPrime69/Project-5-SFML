@@ -114,6 +114,7 @@ void ViewManager::swapViewButton()
 				{
 					this->combatLogic->Attack(this->pokemonPlayer.getMove(i), this->combatLogic->WildAIAttackDecision(this->pokemonEnemy));
 					this->combatLogic->drawHP(this->pokemonPlayer, this->pokemonEnemy);
+					this->view.top()->updateHp();
 				}
 			}
 		}

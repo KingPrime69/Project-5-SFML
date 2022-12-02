@@ -48,6 +48,8 @@ public:
 	void selectedButton();
 	std::string getActionButton();
 
+	void updateHp();
+
 	void draw();
 
 
