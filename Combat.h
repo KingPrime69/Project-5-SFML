@@ -18,7 +18,7 @@ class Combat : public ViewCreator
 public :
 
 	//constructor
-	Combat(sf::RenderWindow* window, Pokemon playerPokemon, Pokemon opponentPokemon, const char* weather);
+	Combat(sf::RenderWindow* window, Pokemon playerPokemon, Pokemon opponentPokemon, const char* weather, bool init);
 
 	//getters
 	Pokemon getPlayerPokemon();
@@ -46,7 +46,7 @@ public :
 	//front end methods
 	void initView(Pokemon playerPokemon, int spritePlayerX, int spritePlayerY,
 		int spritePlayerW, int spritePlayerH, int increPokePlayerX, int increPokePlayerY, Pokemon opponentPokemon, int spriteNPX, int spriteNPY, int spriteNPW,
-		int spriteNPH, int increNPX, int increNPY);
+		int spriteNPH, int increNPX, int increNPY, Pokemon pokemonPlayer, Pokemon pokemonEnemy, bool init);
 	void drawHP(Pokemon pokemonPlayer, Pokemon pokemonEnemy);
 
 private : 

@@ -2,14 +2,14 @@
 #include <cstdlib>
 #include <math.h>
 
-Combat::Combat(sf::RenderWindow* window, Pokemon playerPokemon, Pokemon opponentPokemon, const char* weather) : ViewCreator(window)
+Combat::Combat(sf::RenderWindow* window, Pokemon playerPokemon, Pokemon opponentPokemon, const char* weather, bool init) : ViewCreator(window)
 {
 	Combat::playerPokemon = playerPokemon;
 	Combat::opponentPokemon = opponentPokemon;
 	Combat::weather = weather;
 
 	this->window = window;
-	initView(playerPokemon, 34, 1, 27, 29, 0, 0, opponentPokemon, 195, 401, 42, 31, 0, 0);
+	initView(playerPokemon, 34, 1, 27, 29, 0, 0, opponentPokemon, 195, 401, 42, 31, 0, 0, playerPokemon, opponentPokemon, init);
 }
 
 Pokemon Combat::getPlayerPokemon()
@@ -892,7 +892,9 @@ Move Combat::WildAIAttackDecision(Pokemon WildPokemon)
 	}
 }
 
-void Combat::initView(Pokemon playerPokemon, int spritePlayerX, int spritePlayerY, int spritePlayerW, int spritePlayerH, int increPokePlayerX, int increPokePlayerY, Pokemon opponentPokemon, int spriteNPX, int spriteNPY, int spriteNPW, int spriteNPH, int increNPX, int increNPY)
+void Combat::initView(Pokemon playerPokemon, int spritePlayerX, int spritePlayerY, int spritePlayerW, 
+	int spritePlayerH, int increPokePlayerX, int increPokePlayerY, Pokemon opponentPokemon, 
+	int spriteNPX, int spriteNPY, int spriteNPW, int spriteNPH, int increNPX, int increNPY, Pokemon pokemonPlayer, Pokemon pokemonEnemy, bool init)
 {
 
 	cout << "Pokemon Move Name Getted : " << playerPokemon.getMove(1).getName() << "\n";
@@ -963,23 +965,32 @@ void Combat::initView(Pokemon playerPokemon, int spritePlayerX, int spritePlayer
 	this->createButton(componentText[4], sf::Color::Black, sf::Color::Red, 3, playerPokemon.getMove(4).getName(),
 		skillX + 250, skillY + 90, 40, 25, 30, componentButton[3], playerPokemon.getMove(4).getName(), 3, sf::Vector2f(0.75, 1.75),
 		46, 32, 270, 54, false);
+
+	if(!init)
+		drawHP(pokemonPlayer, pokemonEnemy);
 }
 
 void Combat::drawHP(Pokemon pokemonPlayer, Pokemon pokemonEnemy)
 {
 	int maxHpPlayer = pokemonPlayer.getHP();
-	int maxHpPokemon = pokemonEnemy.getHP();
 	int hpPlayer = pokemonPlayer.getCurrentHP();
+	int maxHpPokemon = pokemonEnemy.getHP();
 	int hpPokemon = pokemonEnemy.getCurrentHP();
+	std::cout << "maxHP Player : " << maxHpPlayer << std::endl;
+	std::cout << "current hp Player : " << hpPlayer << std::endl;
+	std::cout << "maxHP Pokemon : " << maxHpPokemon << std::endl;
+	std::cout << "currentHP Pokemon : " << hpPokemon << std::endl;
 
 	int WindowYPokemon = this->window->getSize().y / 2 - 100;
 	int pokeLeftX = this->window->getSize().x / 7;
 	int pokeRightX = this->window->getSize().x - 275;
 
-	int formulePlayer = maxHpPlayer - (maxHpPlayer - hpPlayer) * 194;
-	int formulePokemon = maxHpPokemon - (maxHpPokemon / hpPokemon) * 194;
-	std::cout << "formule : " << formulePlayer << std::endl;
-	std::cout << "calc : " << 194 - formulePlayer << std::endl;
+	int formulePlayer = maxHpPlayer - hpPlayer;
+	int formulePokemon = maxHpPokemon - hpPokemon;
+	std::cout << "formule Player : " << formulePlayer << std::endl;
+	std::cout << "resultat Player : " << formulePlayer << std::endl;
+	std::cout << "formule Pokemon : " << formulePokemon << std::endl;
+	std::cout << "resultat Pokemon : " << formulePokemon << std::endl;
 	this->addRect(componentRect[0], sf::Color::Green, pokeLeftX + 98, WindowYPokemon - 145, sf::Vector2f(194 - formulePlayer, 10), "hpPlayer");
 	this->addRect(componentRect[0], sf::Color::Green, pokeRightX - 2, WindowYPokemon - 145, sf::Vector2f(194 - formulePokemon, 10), "hpEnemy");
 }

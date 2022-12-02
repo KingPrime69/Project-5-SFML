@@ -235,7 +235,11 @@ void ViewCreator::draw()
 	}
 	if (!componentRectList.empty()) {
 		for (auto i : componentRectList)
+		{
+			//std::cout << i.first << std::endl;
 			this->window->draw(componentRectList[i.first]);
+
+		}
 	}
 	if (!componentSpriteHover.empty())
 	{
