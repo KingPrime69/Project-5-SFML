@@ -72,7 +72,6 @@ void EntityAnimation::animationSpeed(int frameRate) {
         _countFrame = 0;
     }
     _countFrame++;
-    std::cout << "countFrame : " << _countFrame << "\n";
 }
 
 void EntityAnimation::movingEntity() {

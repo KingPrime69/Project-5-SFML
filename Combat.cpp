@@ -964,3 +964,10 @@ void Combat::initView(Pokemon playerPokemon, int spritePlayerX, int spritePlayer
 		skillX + 250, skillY + 90, 40, 25, 30, componentButton[3], playerPokemon.getMove(4).getName(), 3, sf::Vector2f(0.75, 1.75),
 		46, 32, 270, 54, false);
 }
+
+void Combat::drawHP(Pokemon pokemonPlayer, Pokemon pokemonEnemy)
+{
+	int hpPlayer = pokemonPlayer.getCurrentHP();
+	int hpPokemon = pokemonEnemy.getCurrentHP();
+
+}

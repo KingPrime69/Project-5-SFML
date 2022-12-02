@@ -36,6 +36,8 @@ private:
 	float MaxKeytime;
 	float Keytime;
 
+	Pokemon pokemonPlayer;
+	Pokemon pokemonEnemy;
 	bool avaible;
 };
 

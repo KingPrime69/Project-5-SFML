@@ -4,12 +4,12 @@ ViewManager::ViewManager(sf::RenderWindow *window)
 {
 	this->window = window;
 	//create pokemon beforehand, should get player pokemon from team (get team in args) and ennemy through random encounter function (not done yet)
-	Pokemon Sprigatito("Sprigatito", 5);
-	Sprigatito.setMove(1, "Leafage");
-	Sprigatito.setMove(2, "Scratch");
-	Sprigatito.setMove(3, "Tail Whip");
-	Pokemon Riolu("Riolu", 5);
-	this->view.push(new Combat(this->window, Sprigatito, Riolu, "none"));
+	this->pokemonPlayer = Pokemon("Sprigatito", 5);
+	this->pokemonPlayer.setMove(1, "Leafage");
+	this->pokemonPlayer.setMove(2, "Scratch");
+	this->pokemonPlayer.setMove(3, "Tail Whip");
+	this->pokemonEnemy = Pokemon("Riolu", 5);
+	this->view.push(new Combat(this->window, this->pokemonPlayer, this->pokemonEnemy, "none"));
 	this->showMenuInGame = false;
 	this->MaxKeytime = 1.f;
 	this->Keytime = 0.f;
@@ -80,9 +80,8 @@ void ViewManager::SwapViewKeyboard()
 		this->avaible = getKeytime();
 		if (this->avaible)
 		{
-			Pokemon Sprigatito("Sprigatito", 5);
-			Pokemon Riolu("Riolu", 5);
-			this->view.push(new Combat(this->window, Sprigatito, Riolu, "none"));
+			this->currentView = "Combat";
+			this->view.push(new Combat(this->window, this->pokemonPlayer, this->pokemonEnemy, "none"));
 		}
 	}
 }
@@ -97,10 +96,11 @@ void ViewManager::swapViewButton()
 
 		//### put view with here name action here ###//
 		if (action == "Start")this->view.push(new InGame(this->window, this->showMenuInGame));
+		if (action == "Start")
+		{
+			this->pokemonPlayer.getMove(1).getName();
+		}
 	}
-	//this->view.push(new Test(this->window));
-	//this->view.top().
-	//this->menu->initComponent();
 }
 
 void ViewManager::drawCurrentView()

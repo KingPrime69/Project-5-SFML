@@ -47,6 +47,7 @@ public :
 	void initView(Pokemon playerPokemon, int spritePlayerX, int spritePlayerY,
 		int spritePlayerW, int spritePlayerH, int increPokePlayerX, int increPokePlayerY, Pokemon opponentPokemon, int spriteNPX, int spriteNPY, int spriteNPW,
 		int spriteNPH, int increNPX, int increNPY);
+	void drawHP(Pokemon pokemonPlayer, Pokemon pokemonEnemy);
 
 private : 
 
