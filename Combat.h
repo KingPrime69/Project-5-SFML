@@ -61,6 +61,5 @@ private :
 	std::array <sf::RectangleShape, MAX_NUMBER_OF_RECT> componentRect;
 	std::array <sf::Sprite, MAX_NUMBER_OF_RECT> componentButton;
 	bool showMenu;
-
 };
 

@@ -19,17 +19,6 @@ void Game::setWindow(int width, int height, const char* windowName)
 }
 
 
-
-void Game::drawSprite(sf::Sprite sprite)
-{
-    this->window.draw(sprite);
-}
-
-void Game::drawText(sf::Text text)
-{
-    this->window.draw(text);
-}
-
 sf::Vector2u Game::getSize()
 {
     return this->window.getSize();
@@ -45,12 +34,6 @@ void Game::handleEvents(void)
         if (event.type == sf::Event::Closed)
             this->window.close();
     }
-}
-
-
-void Game::showView()
-{
-
 }
 
 // Used to draw an entity in the game
@@ -77,13 +60,13 @@ int Game::run()
 
 
     // Player creation & movement test
-    sf::Texture playerTexture;
-    if (!playerTexture.loadFromFile(PLAYER_TEXTURE_PATH))
-    {
-        // error...
-    }
-    Player player = Player(playerTexture);
-    player.setDirection(4); // Sets player's direction to the south
+    //sf::Texture playerTexture;
+    //if (!playerTexture.loadFromFile(PLAYER_TEXTURE_PATH))
+    //{
+    //    // error...
+    //}
+    //Player player = Player(playerTexture);
+    //player.setDirection(4); // Sets player's direction to the south
     
     while (this->window.isOpen())
     {
@@ -101,18 +84,18 @@ int Game::run()
         // Draw the string
 
         // Checks is a key is pressed before moving the player
-        if (sf::Keyboard::isKeyPressed)
-        {
-            player.movingEntity();
-        }
+        //if (sf::Keyboard::isKeyPressed)
+        //{
+        //    player.movingEntity();
+        //}
         
         // Redraws the player in the window
         //this->drawEntity(player);
 
 
-        this->viewManager->drawCurrentView();
         this->viewManager->swapViewButton();
         this->viewManager->SwapViewKeyboard();
+        this->viewManager->drawCurrentView();
         //this->window.drawSprite(salameche);
 
         //for (unsigned int i = 0; i < menu.componentTextList.size(); i++)this->window.drawText(menu.componentTextList[i]);

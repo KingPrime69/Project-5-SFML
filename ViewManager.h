@@ -22,8 +22,6 @@ public:
 	void SwapViewKeyboard();
 	void swapViewButton();
 
-	void combatButton();
-
 
 	void drawCurrentView();
 
@@ -43,6 +41,7 @@ private:
 	Pokemon pokemonPlayer;
 	Pokemon pokemonEnemy;
 	std::array <std::string, 4> nameMoveList;
+	Combat* combatLogic;
 
 	bool avaible;
 };

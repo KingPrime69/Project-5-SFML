@@ -14,15 +14,13 @@ public:
 	~Game();
 
 	void setWindow(int width, int height, const char* windowName);
-	void drawSprite(sf::Sprite sprite);
-	void drawText(sf::Text text);
+
 
 	sf::Vector2u getSize();
 
 
 	void handleEvents(void); 
 
-	void showView();
 	int run();
 
 

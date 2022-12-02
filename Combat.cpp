@@ -969,5 +969,4 @@ void Combat::drawHP(Pokemon pokemonPlayer, Pokemon pokemonEnemy)
 {
 	int hpPlayer = pokemonPlayer.getCurrentHP();
 	int hpPokemon = pokemonEnemy.getCurrentHP();
-
 }

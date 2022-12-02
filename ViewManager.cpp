@@ -9,13 +9,18 @@ ViewManager::ViewManager(sf::RenderWindow *window)
 	this->pokemonPlayer.setMove(2, "Scratch");
 	this->pokemonPlayer.setMove(3, "Tail Whip");
 	this->pokemonEnemy = Pokemon("Riolu", 5);
+	this->pokemonEnemy.setMove(1, "Leafage");
+	this->pokemonEnemy.setMove(2, "Scratch");
+	this->pokemonEnemy.setMove(3, "Tail Whip");
 	this->view.push(new Combat(this->window, this->pokemonPlayer, this->pokemonEnemy, "none"));
+	//this->view.push(new Menu(this->window));
+	this->combatLogic = new Combat(this->window, this->pokemonPlayer, this->pokemonEnemy, "none");
 	this->showMenuInGame = false;
 	this->MaxKeytime = 1.f;
 	this->Keytime = 0.f;
 	this->avaible = false;
 	//this->menu = new Menu(this->window);
-	this->currentView = "Start";
+	this->currentView = "Combat";
 }
 
 ViewManager::~ViewManager()
@@ -98,20 +103,20 @@ void ViewManager::swapViewButton()
 		if (action == "Combat")
 		{
 			this->view.push(new Combat(this->window, this->pokemonPlayer, this->pokemonEnemy, "none"));
-			for (unsigned int i = 1; i < 5; i++)
+		}
+		std::string attack = this->view.top()->getActionButton();
+		for (unsigned int i = 1; i < 5; i++)
+		{
+			if (attack == this->pokemonPlayer.getMove(i).getName())
 			{
-				this->nameMoveList[i] = this->pokemonPlayer.getMove(i).getName();
+				this->avaible = getKeytime();
+				if (avaible)
+				{
+					std::cout << "view :" << this->currentView << std::endl;
+					this->combatLogic->Attack(this->pokemonPlayer.getMove(i), this->combatLogic->WildAIAttackDecision(this->pokemonEnemy));
+				}
 			}
 		}
-	}
-}
-
-void ViewManager::combatButton()
-{
-	if (this->view.top()->getActionButton() != "")
-	{
-		std::string attack = this->view.top()->getActionButton();
-
 	}
 }
 

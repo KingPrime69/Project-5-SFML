@@ -138,9 +138,6 @@ void ViewCreator::initSelect()
 	this->pos = 0;
 	componentButtonTextList[pos].setOutlineColor(this->colorHover);
 	componentButtonTextList[pos].setOutlineThickness(5);
-	std::cout << "lenght : " << length << std::endl;
-	std::cout << "posMin : " << posMin << std::endl;
-	std::cout << "pos : " << this->pos << std::endl;
 	this->one = true;
 }
 
@@ -195,8 +192,10 @@ std::string ViewCreator::getActionButton()
 {
 	if (!componentButtonTextList.empty())
 	{
-		if (this->keyboard.isKeyPressed(this->keyboard.Enter))
+		if (this->keyboard.isKeyPressed(this->keyboard.Enter)) {
 			return buttonActionList[this->pos];
+		}
+
 	}
 	return "";
 }
