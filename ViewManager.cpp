@@ -112,8 +112,8 @@ void ViewManager::swapViewButton()
 				this->avaible = getKeytime();
 				if (avaible)
 				{
-					std::cout << "view :" << this->currentView << std::endl;
 					this->combatLogic->Attack(this->pokemonPlayer.getMove(i), this->combatLogic->WildAIAttackDecision(this->pokemonEnemy));
+					this->combatLogic->drawHP(this->pokemonPlayer, this->pokemonEnemy);
 				}
 			}
 		}
