@@ -88,12 +88,12 @@ void ViewCreator::addSprite(sf::Sprite buttonSPrite, int bgTexture,
 	}
 }
 
-void ViewCreator::addRect(sf::RectangleShape rect, sf::Color color,float x, float y, sf::Vector2f size)
+void ViewCreator::addRect(sf::RectangleShape rect, sf::Color color,float x, float y, 
+	sf::Vector2f size, std::string name)
 {
-	componentRectList.push_back(rect);
-	componentRectList.back().setPosition(x, y);
-	componentRectList.back().setFillColor(color);
-	componentRectList.back().setSize(size);
+	componentRectList[name].setPosition(x, y);
+	componentRectList[name].setFillColor(color);
+	componentRectList[name].setSize(size);
 }
 
 int ViewCreator::InitBackground()
@@ -225,8 +225,8 @@ void ViewCreator::draw()
 			this->window->draw(componentButtonTextList[i]);
 	}
 	if (!componentRectList.empty()) {
-		for (unsigned int i = 0; i < componentRectList.size(); i++)
-			this->window->draw(componentRectList[i]);
+		for (auto i : componentRectList)
+			this->window->draw(componentRectList[i.first]);
 	}
 	if (!componentSpriteHover.empty())
 	{

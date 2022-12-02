@@ -35,7 +35,7 @@ public:
 		int rectHeight, bool alignCenter, string name, bool hover);
 
 	void addRect(sf::RectangleShape rect, sf::Color color,float x, float y, 
-		sf::Vector2f size);
+		sf::Vector2f size, std::string name);
 
 
 	int InitBackground();
@@ -55,7 +55,7 @@ protected:
 	sf::RenderWindow* window;
 	std::vector<sf::Text> componentTextList;
 	std::vector<sf::Text> componentButtonTextList;
-	std::vector<sf::RectangleShape> componentRectList;
+	std::map<std::string, sf::RectangleShape> componentRectList;
 private:
 	sf::Texture bgTextureList[2];
 	sf::Sprite background;

@@ -942,8 +942,8 @@ void Combat::initView(Pokemon playerPokemon, int spritePlayerX, int spritePlayer
 	//### ~HP ###//
 
 	//### HP barre ###//
-	this->addRect(componentRect[0], sf::Color::Green, pokeLeftX + 98, WindowYPokemon - 145, sf::Vector2f(194, 10));
-	this->addRect(componentRect[0], sf::Color::Green, pokeRightX - 2, WindowYPokemon - 145, sf::Vector2f(194, 10));
+	this->addRect(componentRect[0], sf::Color::Green, pokeLeftX + 98, WindowYPokemon - 145, sf::Vector2f(194, 10), "hpPlayer");
+	this->addRect(componentRect[0], sf::Color::Green, pokeRightX - 2, WindowYPokemon - 145, sf::Vector2f(194, 10), "hpEnemy");
 	//### ~HP barre ###//
 
 	int skillX = 1 / this->window->getSize().x + 50;

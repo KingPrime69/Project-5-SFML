@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <stack>
+#include <array>
 #include <SFML/Graphics.hpp>
 
 #include "Menu.h"
@@ -19,8 +20,11 @@ public:
 	bool getKeytime();
 
 	void SwapViewKeyboard();
-
 	void swapViewButton();
+
+	void combatButton();
+
+
 	void drawCurrentView();
 
 
@@ -38,6 +42,8 @@ private:
 
 	Pokemon pokemonPlayer;
 	Pokemon pokemonEnemy;
+	std::array <std::string, 4> nameMoveList;
+
 	bool avaible;
 };
 

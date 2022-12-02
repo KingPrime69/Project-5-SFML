@@ -81,7 +81,6 @@ void ViewManager::SwapViewKeyboard()
 		if (this->avaible)
 		{
 			this->currentView = "Combat";
-			this->view.push(new Combat(this->window, this->pokemonPlayer, this->pokemonEnemy, "none"));
 		}
 	}
 }
@@ -96,10 +95,23 @@ void ViewManager::swapViewButton()
 
 		//### put view with here name action here ###//
 		if (action == "Start")this->view.push(new InGame(this->window, this->showMenuInGame));
-		if (action == "Start")
+		if (action == "Combat")
 		{
-			this->pokemonPlayer.getMove(1).getName();
+			this->view.push(new Combat(this->window, this->pokemonPlayer, this->pokemonEnemy, "none"));
+			for (unsigned int i = 1; i < 5; i++)
+			{
+				this->nameMoveList[i] = this->pokemonPlayer.getMove(i).getName();
+			}
 		}
+	}
+}
+
+void ViewManager::combatButton()
+{
+	if (this->view.top()->getActionButton() != "")
+	{
+		std::string attack = this->view.top()->getActionButton();
+
 	}
 }
 
